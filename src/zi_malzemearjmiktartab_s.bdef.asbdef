@@ -1,0 +1,62 @@
+managed with additional save implementation in class ZBP_I_MALZEMEARJMIKTARTAB_S unique;
+strict;
+with draft;
+define behavior for ZI_MalzemeArjMiktarTab_S alias MalzemeArjMiktarAll
+draft table ZPP_T_CONF_D_S11
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _MalzemeArjMiktarTab { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_MalzemeArjMiktarTab alias MalzemeArjMiktarTab ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_011
+draft table ZPP_T_CONF_01D11
+lock dependent by _MalzemeArjMiktarAll
+authorization dependent by _MalzemeArjMiktarAll
+{
+  field ( mandatory : create )
+   Malzeme;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Malzeme;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_011
+  {
+    Malzeme = MALZEME;
+    Sarjmiktari = SARJMIKTARI;
+  }
+
+  association _MalzemeArjMiktarAll { with draft; }
+
+}

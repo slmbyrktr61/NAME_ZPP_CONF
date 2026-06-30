@@ -1,0 +1,51 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'YmKurabiyeDNMFakTab',
+    typeNamePlural: 'YmKurabiyeDNMFakTabs',
+    title: {
+      type: #STANDARD,
+      label: 'YM Dönüşüm Fak.Tabl.',
+      value: 'Product'
+    }
+  }
+}
+annotate view ZI_YmKurabiyeDNMFakTab with
+{
+  @UI.identification: [
+    {
+      position: 1
+    }
+  ]
+  @UI.lineItem: [
+    {
+      position: 1,
+      label: 'Ürün Adı'
+    }
+  ]
+  @UI.facet: [
+    {
+      id: 'ZI_YmKurabiyeDNMFakTab',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'YM Dönüşüm Fak.Tabl.',
+      position: 1
+    }
+  ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Product;
+
+  @UI.identification: [
+    {
+      position: 2,
+      label: 'Fırın Firesi/Katsayı'
+    }
+  ]
+  @UI.lineItem: [
+    {
+      position: 2,
+      label: 'Fırın Firesi/Katsayı'
+    }
+  ]
+  Firinfiresi;
+}

@@ -1,0 +1,41 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DuruKoduSebebiTabl', 
+    typeNamePlural: 'DuruKoduSebebiTabls', 
+    title: {
+      type: #STANDARD, 
+      label: 'Duruş Kodu-Sebebi Tabl.', 
+      value: 'Duruskodu'
+    }
+  }
+}
+annotate view ZI_DuruKoduSebebiTabl with
+{
+  @UI.identification: [ {
+    position: 1 , 
+    label: 'Duruskodu'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 , 
+    label: 'Duruş Kodu'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_DuruKoduSebebiTabl', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Duruş Kodu-Sebebi Tabl.', 
+    position: 1 
+  } ]
+  Duruskodu;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Duruş Sebebi'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Duruş Sebebi'
+  } ]
+  Durussebebi;
+}

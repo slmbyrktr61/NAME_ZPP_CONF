@@ -1,0 +1,199 @@
+managed implementation in class zcl_pp_bp_i_conf_h unique;
+strict ( 2 );
+with draft;
+
+
+
+define behavior for ZPP_I_CONF_H alias _Header
+persistent table zpp_t_conf_h
+draft table zpp_t_conf_h_d
+lock master total etag LocalLastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+with additional save
+//with unmanaged save
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  association _Items { create; with draft; }
+
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  validation validateMandatoryHeader on save
+  {
+    create;
+    update;
+    field ShiftCode;
+    field GroupCode;
+    field Material;
+    //    field ProductionType;
+    //    field Multiplier;
+  }
+
+  //  validation ValidateMandatoryItems on save
+  //  {
+  //    create;
+  //    update;
+  //  }
+
+
+  action ( features : instance ) DowntimeReason parameter ZPP_A_DWNTM_REASON result [1] $self;
+
+
+  action ( features : instance ) Confirmation result [1] $self;
+  action ( features : instance ) GetMatComponents result [1] $self;
+  action ( features : instance ) GetProdQuan result [1] $self;
+  action ( features : instance ) DefineBatch result [1] $self;
+  action ( features : instance ) UseScrapMaterial result [1] $self;
+
+  determination FillMaterialData on modify { field Material; } // Malzeme Seçimi
+  determination SetProductionBatch on modify { field ShiftCode; } // Vardiya ile Üretim partisi alanı olşturma
+  determination ChangeProductionQuan on modify { field ChargeQuantity; } // Şarj Miktarı-Üretim Miktarı Değişikliği
+  determination SetClosingShiftVisibility on modify { create; field Material; } // Son Vardiya görünürlüğü
+  determination SetChargeQuantityVisibility on modify { create; field Material; }
+//  determination SetChargeQuanVisibilitySave on save { create; update; }
+
+
+  side effects
+  {
+    // Malzeme Seçimi
+    field Material affects
+        field MaterialDescription,
+        field BaseUnit,
+        field ProductionType,
+        field HideClosingShift,
+        field HideChargeQuantity,
+        field HideMultiplier,
+        field ActualQuantity,
+        entity _Items;
+
+    // Vardiya ile Üretim partisi alanı olşturma
+    field ShiftCode affects field ProductionBatch;
+    // Şarj Miktarı-Üretim Miktarı Değişikliği
+    field ChargeQuantity affects field ProductionQuantity;
+    // Son Vardiya Fiili miktar değişimleri
+    field ClosingShift affects entity _Items;
+    // Bileşenleri Getir refresh
+    action GetMatComponents affects $self, entity _Items;
+    // Parti Belirleme FİFO refresh
+    action DefineBatch affects $self, entity _Items;
+    // Teyit Sonrası refresh
+    action Confirmation affects field ConfDoc, $self, entity _Items;
+    // Iskarta Malzeme Kullan
+    action UseScrapMaterial affects $self, entity _Items;
+
+
+  }
+
+  field ( numbering : managed, readonly ) ConfUuid;
+
+  field ( readonly ) MaterialDescription;
+  field ( readonly ) ActualQuantity;
+  field ( readonly ) BaseUnit;
+  field ( readonly ) BatchUpdate;
+  field ( readonly ) CreatedBy;
+  field ( readonly ) CreatedAt;
+  field ( readonly ) LastChangedBy;
+  field ( readonly ) LastChangedAt;
+  field ( readonly ) LocalLastChangedAt;
+
+  mapping for zpp_t_conf_h
+    {
+      ConfUuid            = conf_uuid;
+      Plant               = plant;
+      ShiftCode           = shiftcode;
+      ShiftDesc           = shiftdesc;
+      GroupCode           = groupcode;
+      GroupDesc           = groupdesc;
+      Material            = material;
+      MaterialDescription = material_description;
+      ProductionQuantity  = production_quantity;
+      ActualQuantity      = actual_quantity;
+      ChargeQuantity      = charge_quantity;
+      HideChargeQuantity  = hide_charge_quantity;
+      Multiplier          = multiplier;
+      HideMultiplier      = hide_multiplier;
+      BaseUnit            = base_unit;
+      ProductionBatch     = production_batch;
+      ProductionType      = production_type;
+      ProductionVersion   = production_version;
+      ClosingShift        = closing_shift;
+      HideClosingShift    = hide_closing_shift;
+      ConfDoc             = conf_doc;
+      BatchUpdate         = batch_update;
+      CreatedBy           = created_by;
+      CreatedAt           = created_at;
+      LastChangedBy       = last_changed_by;
+      LastChangedAt       = last_changed_at;
+      LocalLastChangedAt  = local_last_changed_at;
+    }
+}
+
+define behavior for ZPP_I_CONF_I alias _Item
+persistent table zpp_t_conf_i
+draft table zpp_t_conf_i_d
+lock dependent by _Header
+authorization dependent by _Header
+etag master LocalLastChangedAt
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  association _Header { with draft; }
+
+
+  determination FillComponentData on modify { field ComponentMaterial; }
+  determination ChangeQuantityByCarCount on modify { field CarCount; }
+  determination ChangeQuantityByActualStock on modify { field ActualStockQuantity; }
+
+  side effects
+  {
+    field ComponentMaterial affects field ComponentDescription, field Unit, field StorageLocation, field BomItemCat, field CarCount, field Quantity, field IsBatchMngmntRequired, field Batch;
+    field CarCount affects field Quantity;
+    field ActualStockQuantity affects field Quantity;
+  }
+
+  field ( numbering : managed, readonly ) ItemUuid;
+
+  field ( readonly ) ConfUuid;
+  field ( readonly ) LocalLastChangedAt;
+  field ( readonly ) ItemNo;
+  field ( readonly ) ComponentDescription;
+  field ( readonly ) StorageLocation;
+  field ( readonly ) Unit;
+  field ( readonly ) HideActualStockQuantity;
+  field ( readonly ) isBatchMngmntRequired;
+  field ( readonly ) BomItemCat;
+
+  field ( features : instance ) CarCount;
+  field ( features : instance ) ActualStockQuantity;
+  field ( features : instance ) Batch;
+
+
+  mapping for zpp_t_conf_i
+    {
+      ItemUuid                = item_uuid;
+      ConfUuid                = conf_uuid;
+      ItemNo                  = item_no;
+      ComponentMaterial       = component_material;
+      ComponentDescription    = component_description;
+      StorageLocation         = storage_location;
+      Batch                   = batch;
+      Quantity                = quantity;
+      Unit                    = unit;
+      CarCount                = car_count;
+      ActualStockQuantity     = actual_stock_quantity;
+      HideActualStockQuantity = hide_actual_stock_quantity;
+      BomItemCat              = bom_item_cat;
+      IsBatchMngmntRequired   = is_batch_mngmnt_required;
+      LocalLastChangedAt      = local_last_changed_at;
+    }
+}

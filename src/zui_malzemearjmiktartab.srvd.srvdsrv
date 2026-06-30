@@ -1,0 +1,6 @@
+@ObjectModel.leadingEntity.name: 'ZI_MalzemeArjMiktarTab_S'
+define service ZUI_MALZEMEARJMIKTARTAB {
+  expose ZI_MalzemeArjMiktarTab_S as MalzemeArjMiktarAll;
+  expose ZI_MalzemeArjMiktarTab   as MalzemeArjMiktarTab;
+  expose ZI_PRODUCT_VH            as ProductVH;
+}

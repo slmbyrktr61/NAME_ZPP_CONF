@@ -1,0 +1,62 @@
+managed with additional save implementation in class ZBP_I_DURUKODUSEBEBITABL_S unique;
+strict;
+with draft;
+define behavior for ZI_DuruKoduSebebiTabl_S alias DuruKoduSebebiTaAll
+draft table ZPP_T_CONF__D_S7
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _DuruKoduSebebiTabl { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_DuruKoduSebebiTabl alias DuruKoduSebebiTabl ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_007
+draft table ZPP_T_CONF_00_D7
+lock dependent by _DuruKoduSebebiTaAll
+authorization dependent by _DuruKoduSebebiTaAll
+{
+  field ( mandatory : create )
+   Duruskodu;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Duruskodu;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_007
+  {
+    Duruskodu = DURUSKODU;
+    Durussebebi = DURUSSEBEBI;
+  }
+
+  association _DuruKoduSebebiTaAll { with draft; }
+
+}

@@ -1,0 +1,40 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Malzeme Şarj Miktarı Tabl. bakımını yap",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_MALZEMEARJMIKTARTAB_O4",
+    "serviceName": "ZUI_MALZEMEARJMIKTARTAB_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "MalzemeArjMiktarAll",
+    "name": "Teyit - Malzeme Şarj Miktarı Tabl.",
+    "transportObject": "ZMALZEMEARJMIKTARTABT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "MalzemeArjMiktarAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "MalzemeArjMiktarTab",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

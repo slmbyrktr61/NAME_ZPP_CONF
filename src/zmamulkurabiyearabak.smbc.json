@@ -1,0 +1,40 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Mamul Kurabiye Araba KG. Tabl. bakımını yap",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_MAMULKURABIYEARABAK_O4",
+    "serviceName": "ZUI_MAMULKURABIYEARABAK_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "MamulKurabiyeAraAll",
+    "name": "Teyit - Mamul Kurabiye Araba KG. Tablosu",
+    "transportObject": "ZMAMULKURABIYEARABAKT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "MamulKurabiyeAraAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "MamulKurabiyeArabaK",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 2,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

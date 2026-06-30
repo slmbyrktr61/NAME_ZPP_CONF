@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_VardiyaNoTabl_S'
+define service ZUI_VARDIYANOTABL {
+  expose ZI_VARDIYANOTABL_S as VardiyaNoTablAll;
+  expose ZI_VARDIYANOTABL as VardiyaNoTabl;
+}

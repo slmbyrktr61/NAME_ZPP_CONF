@@ -1,0 +1,10 @@
+@EndUserText.label: 'Teyit Ekranı Servis Defination'
+define service ZPP_UI_CONF_SRV {
+  expose ZPP_C_CONF_H          as ConfirmationH;
+  expose ZPP_C_CONF_I          as ConfirmationI;
+  expose ZPP_I_GROUP_VH        as GroupVH;
+  expose ZPP_I_SHIFT_VH        as ShiftVH;
+  expose ZPP_I_PRODUCT_VH      as ProductVH;
+  expose ZPP_I_DWNTM_REASON_VH as DowntimeVH;
+  expose ZPP_I_BATCH_STOCK_VH  as ProdBatchStockVH;
+}

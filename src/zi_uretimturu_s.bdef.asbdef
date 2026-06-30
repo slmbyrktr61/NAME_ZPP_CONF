@@ -1,0 +1,61 @@
+managed with additional save implementation in class ZBP_I_URETIMTURU_S unique;
+strict;
+with draft;
+define behavior for ZI_UretimTuru_S alias UretimTuruTablAll
+draft table ZPP_T_CONF_D_S13
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _UretimTuruTabl { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_UretimTuruTabl alias UretimTuruTabl ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_013
+draft table ZPP_T_CONF_13_D
+lock dependent by _UretimTuruTablAll
+authorization dependent by _UretimTuruTablAll
+{
+  field ( mandatory : create )
+   Uretimturu;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Uretimturu;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_013
+  {
+    Uretimturu = URETIMTURU;
+  }
+
+  association _UretimTuruTablAll { with draft; }
+
+}

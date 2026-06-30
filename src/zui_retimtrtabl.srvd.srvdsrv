@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_RetimTRTablS13'
+define service ZUI_RETIMTRTABL {
+  expose ZI_RETIMTRTABLS13 as RetimTRTablAll;
+  expose ZI_RETIMTRTABL as RetimTRTabl;
+}

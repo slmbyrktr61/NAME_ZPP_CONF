@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_GrupTablosu_S'
+define service ZUI_GRUPTABLOSU {
+  expose ZI_GRUPTABLOSU_S as GrupTablosuAll;
+  expose ZI_GRUPTABLOSU as GrupTablosu;
+}

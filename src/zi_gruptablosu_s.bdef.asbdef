@@ -1,0 +1,62 @@
+managed with additional save implementation in class ZBP_I_GRUPTABLOSU_S unique;
+strict;
+with draft;
+define behavior for ZI_GrupTablosu_S alias GrupTablosuAll
+draft table ZPP_T_CONF__D_S2
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _GrupTablosu { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_GrupTablosu alias GrupTablosu ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_002
+draft table ZPP_T_CONF_00_D2
+lock dependent by _GrupTablosuAll
+authorization dependent by _GrupTablosuAll
+{
+  field ( mandatory : create )
+   Grup;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Grup;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_002
+  {
+    Grup = GRUP;
+    Tanim = TANIM;
+  }
+
+  association _GrupTablosuAll { with draft; }
+
+}

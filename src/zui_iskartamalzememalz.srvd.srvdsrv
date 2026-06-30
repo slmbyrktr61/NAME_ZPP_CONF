@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_IskartaMalzemeMalz_S'
+define service ZUI_ISKARTAMALZEMEMALZ {
+  expose ZI_ISKARTAMALZEMEMALZ_S as IskartaMalzemeMaAll;
+  expose ZI_ISKARTAMALZEMEMALZ as IskartaMalzemeMalz;
+}

@@ -1,0 +1,40 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Vardiyalar Tablosu Bakım Ekranı",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_VARDIYANOTABL_O4",
+    "serviceName": "ZUI_VARDIYANOTABL_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "VardiyaNoTablAll",
+    "name": "Teyit - Vardiya Tablosu bakımı yap",
+    "transportObject": "ZVARDIYANOTABLT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "VardiyaNoTablAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "VardiyaNoTabl",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

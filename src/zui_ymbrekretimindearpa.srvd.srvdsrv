@@ -1,0 +1,4 @@
+@ObjectModel.leadingEntity.name: 'ZI_YmBRekRetimindcArpa_S'
+define service ZUI_YMBREKRETIMINDEARPA {
+  expose ZPP_I_CONF_H as delete;
+}

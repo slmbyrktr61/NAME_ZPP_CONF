@@ -1,0 +1,65 @@
+managed with additional save implementation in class ZBP_I_EEKMEKLAHMACUNYMSTO_S unique;
+strict;
+with draft;
+define behavior for ZI_EEkmekLahmacunYmSto_S alias EEkmekLahmacunYmAll
+draft table ZPP_T_CONF__D_S9
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _EEkmekLahmacunYmSto { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_EEkmekLahmacunYmSto alias EEkmekLahmacunYmSto ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_009
+draft table ZPP_T_CONF_00_D9
+lock dependent by _EEkmekLahmacunYmAll
+authorization dependent by _EEkmekLahmacunYmAll
+{
+  field ( mandatory : create )
+   Mamul,
+   Yarimamul;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Mamul,
+   Yarimamul;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_009
+  {
+    Mamul = MAMUL;
+    Yarimamul = YARIMAMUL;
+    Miktar = MIKTAR;
+  }
+
+  association _EEkmekLahmacunYmAll { with draft; }
+
+}

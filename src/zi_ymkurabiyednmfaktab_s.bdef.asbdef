@@ -1,0 +1,62 @@
+managed with additional save implementation in class ZBP_I_YMKURABIYEDNMFAKTAB_S unique;
+strict;
+with draft;
+define behavior for ZI_YmKurabiyeDNMFakTab_S alias YmKurabiyeDNMFakAll
+draft table ZPP_T_CONF__D_S3
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _YmKurabiyeDNMFakTab { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_YmKurabiyeDNMFakTab alias YmKurabiyeDNMFakTab ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_003
+draft table ZPP_T_CONF_00_D3
+lock dependent by _YmKurabiyeDNMFakAll
+authorization dependent by _YmKurabiyeDNMFakAll
+{
+  field ( mandatory : create )
+   Product;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Product;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_003
+  {
+    Product = PRODUCT;
+    Firinfiresi = FIRINFIRESI;
+  }
+
+  association _YmKurabiyeDNMFakAll { with draft; }
+
+}

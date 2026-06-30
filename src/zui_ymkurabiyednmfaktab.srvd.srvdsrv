@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_YmKurabiyeDNMFakTab_S'
+define service ZUI_YMKURABIYEDNMFAKTAB {
+  expose ZI_YMKURABIYEDNMFAKTAB_S as YmKurabiyeDNMFakAll;
+  expose ZI_YMKURABIYEDNMFAKTAB as YmKurabiyeDNMFakTab;
+}

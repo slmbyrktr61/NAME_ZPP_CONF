@@ -1,0 +1,65 @@
+managed with additional save implementation in class ZBP_I_MAMULKURABIYEARABAK_S unique;
+strict;
+with draft;
+define behavior for ZI_MamulKurabiyeArabaK_S alias MamulKurabiyeAraAll
+draft table ZPP_T_CONF__D_S4
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _MamulKurabiyeArabaK { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_MamulKurabiyeArabaK alias MamulKurabiyeArabaK ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_004
+draft table ZPP_T_CONF_00_D4
+lock dependent by _MamulKurabiyeAraAll
+authorization dependent by _MamulKurabiyeAraAll
+{
+  field ( mandatory : create )
+   Mamul,
+   Yarimamul;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Mamul,
+   Yarimamul;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_004
+  {
+    Mamul = MAMUL;
+    Yarimamul = YARIMAMUL;
+    Arabakg = ARABAKG;
+  }
+
+  association _MamulKurabiyeAraAll { with draft; }
+
+}

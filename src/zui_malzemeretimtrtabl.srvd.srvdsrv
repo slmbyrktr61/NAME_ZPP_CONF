@@ -1,0 +1,6 @@
+@ObjectModel.leadingEntity.name: 'ZI_MalzemeRetimTRTabl_S'
+define service ZUI_MALZEMERETIMTRTABL {
+  expose ZI_MalzemeRetimTRTabl_S as MalzemeRetimTRTaAll;
+  expose ZI_MalzemeRetimTRTabl   as MalzemeRetimTRTabl;
+  expose ZI_PRODUCT_VH           as ProductVH;
+}

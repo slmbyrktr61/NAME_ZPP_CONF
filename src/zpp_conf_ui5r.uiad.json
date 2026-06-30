@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Teyit Ekranı",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Teyit Ekranı"
+  },
+  "ui5AppDetails": {
+    "appId": "com.name.zppconf"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_ED41A87EF5BE29C8142F94FC5AD0AD1D332D16F7_TM",
+    "semanticObject": "zppconf",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_ED41A87EF5BE29C8142F94FC5AD0AD1D332D16F7_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Teyit Ekranı",
+        "subtitle": "PP"
+      }
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZPP_CONF</ARBGB>
+    <MASTERLANG>T</MASTERLANG>
+    <STEXT>Teyit Ekranı Mesaj Sınıfı</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Teyit Kalemleri bulunamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Teyit Başlık Verileri Eksik!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Kalem verisinde malzeme no boş olamaz!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>&amp; Malzemesi için versiyon ya da varyant bulunamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>&amp; / &amp; için yetersiz stok!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Teyit yaratma işleminde hata oluştu!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>&amp; Malzemesi  ve &amp; ölçü birimi için kod dönüşümü bulunamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Teyit Kaydedildi</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>&amp; Malzemesi için Üretim Tipi bakımı yapılmalıdır!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>&amp; Malzemesi sistemde bulunamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>&amp; Üretim Türünde bu işlev kullanamaz!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>&amp; Kalem no bileşen malzeme girişi eksik!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>&amp; Malzeme satırında Depo Yeri girişi eksik!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>&amp; Malzeme satırında Parti girişi eksik!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>&amp; Malzeme satırında Miktar girişi eksik!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>&amp; Malzemesi &amp; Depo Yeri ve &amp; Parti için stok bilgisi bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Kullanıcı TIMEZONE hatası! Tarih saat alınamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Vardiya, Grup ve Malzeme alanları zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>İş Yeri, Duruş Kodu ve Durma Süresi alanları zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Duruş Sebebi başarıyla kaydedildi.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Parti belirleme için bileşen kalemi bulunamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Bileşen , depo yeri ve miktar alanıları dolu olmalıdır!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Aynı malz/depo için farklı ÖB. bulundu.(&amp;/&amp;)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Parti belirleme için geçerli bileşen kalemi bulunamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>&amp; / &amp; için yetersiz stok,</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Karşılanamayan miktar partisiz bırakıldı: &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>FIFO parti belirleme için uygun bileşen satırı oluşturulamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Mevcut bileşen kalemleri silinirken hata oluştu!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>FIFO bileşen kalemleri oluşturulurken hata oluştu!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>FIFO parti belirleme tamamlandı.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>&amp; Mamul Kurabiye Araba KG. bakımı bulunamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>&amp; Mamul Kurabiye Araba KG. boş olamaz!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>&amp; Mamul  miktarı negatif değer içeriyor &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>&amp; Mamul parti belirleme öncesi araç sayısı girişi yapılmalıdır!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Bileşen &amp;1 için stok kullanımı miktar bakımı  bulunamadı!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>Bileşen &amp;1 için hs. miktar &amp;2 negatif olamaz!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>&amp; Üretim türünde Çarpan alanı zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>Üretim Miktarı boş olamaz!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>Bu işlem üretim türü/vardiya için kullanılamaz</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>İşlenecek bileşen kalemi bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>Miktarı 0 olan Z bileşen bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>Iskarta malzeme eşleşmesi bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>&amp;1 için sabit stok miktarı bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>&amp;1 / &amp;2 hesap sonucu negatif</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>045</MSGNR>
+     <TEXT>Güncellenecek ıskarta/bileşen kalemi bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>046</MSGNR>
+     <TEXT>Iskarta malz. miktar güncellemesi sırasında hata</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>047</MSGNR>
+     <TEXT>Iskarta malzeme miktarları hesaplandı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>048</MSGNR>
+     <TEXT>Üretim miktarı bu üretim türünde hesaplanamaz</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>049</MSGNR>
+     <TEXT>Kalem bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>050</MSGNR>
+     <TEXT>&amp;1 için miktar 0 olamaz</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>051</MSGNR>
+     <TEXT>&amp;1 için KG dönüşümü yapılamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>052</MSGNR>
+     <TEXT>Z&apos;li kalemlerde KG toplamı bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>053</MSGNR>
+     <TEXT>Z/kepek kalemlerinde KG toplamı bulunamadı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>054</MSGNR>
+     <TEXT>Üretim malzemesi için Fırın Firesi/Katsayısı yok</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>055</MSGNR>
+     <TEXT>Üretim miktarı güncellenemedi</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>056</MSGNR>
+     <TEXT>Üretim miktarı hesaplandı</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>057</MSGNR>
+     <TEXT>&amp; Malzemesi için BOM kayıtları çekilemedi!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>058</MSGNR>
+     <TEXT>&amp; Üretim türünde çarpan seçilmesi zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>059</MSGNR>
+     <TEXT>&amp; Üretim türünde şarj mikt. bakımı yapılmalıdır!</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

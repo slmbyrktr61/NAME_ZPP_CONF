@@ -1,0 +1,49 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'YmBRekRetimYmTKetim',
+    typeNamePlural: 'YmBRekRetimYmTKetims',
+    title: {
+      type: #STANDARD,
+      label: 'Tüketim Stokta Kalacak Mik.Tabl.',
+      value: 'Yarimamul'
+    }
+  }
+}
+annotate view ZI_YmBRekRetimYmTKetim with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_YmBRekRetimYmTKetim',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'YM Börek Üretim YM Tüketim Tabl.',
+    position: 1
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Yarimamul;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Altyarimamul;
+
+  @UI.identification: [ {
+    position: 3 ,
+    label: 'Stokta Kalacak Sabit Mik.'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 ,
+    label: 'Stokta Kalacak Sabit Mik.'
+  } ]
+  Stkklnsabitmik;
+}

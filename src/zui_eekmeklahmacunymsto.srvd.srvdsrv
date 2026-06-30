@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_EEkmekLahmacunYmSto_S'
+define service ZUI_EEKMEKLAHMACUNYMSTO {
+  expose ZI_EEKMEKLAHMACUNYMSTO_S as EEkmekLahmacunYmAll;
+  expose ZI_EEKMEKLAHMACUNYMSTO as EEkmekLahmacunYmSto;
+}

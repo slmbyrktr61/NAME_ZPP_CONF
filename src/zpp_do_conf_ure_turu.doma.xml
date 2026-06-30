@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZPP_DO_CONF_URE_TURU</DOMNAME>
+    <DDLANGUAGE>T</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000022</LENG>
+    <OUTPUTLEN>000022</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Üretim Türü</DDTEXT>
+    <DOMMASTER>T</DOMMASTER>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZPP_DO_CONF_URE_TURU</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>T</DDLANGUAGE>
+     <DOMVALUE_L>SARJLI</DOMVALUE_L>
+     <DDTEXT>Şarjlı</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZPP_DO_CONF_URE_TURU</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>T</DDLANGUAGE>
+     <DOMVALUE_L>YM_KURABIY</DOMVALUE_L>
+     <DDTEXT>YM Kurabiye Simit</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZPP_DO_CONF_URE_TURU</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>T</DDLANGUAGE>
+     <DOMVALUE_L>MAMUL_KURA</DOMVALUE_L>
+     <DDTEXT>Mamul Kurabiye</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZPP_DO_CONF_URE_TURU</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>T</DDLANGUAGE>
+     <DOMVALUE_L>YM_BOREK</DOMVALUE_L>
+     <DDTEXT>YM Börek</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZPP_DO_CONF_URE_TURU</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>T</DDLANGUAGE>
+     <DOMVALUE_L>MAMUL_BORE</DOMVALUE_L>
+     <DDTEXT>Mamul Börek</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZPP_DO_CONF_URE_TURU</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>T</DDLANGUAGE>
+     <DOMVALUE_L>MAMUL_EE_L</DOMVALUE_L>
+     <DDTEXT>Mamul Etli Ekmek Lahmacun</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZPP_DO_CONF_URE_TURU</DOMNAME>
+     <VALPOS>0007</VALPOS>
+     <DDLANGUAGE>T</DDLANGUAGE>
+     <DOMVALUE_L>YM_EE_LAHM</DOMVALUE_L>
+     <DDTEXT>YM Etli Ekmek Lahmacun</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

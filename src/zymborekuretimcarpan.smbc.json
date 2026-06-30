@@ -1,0 +1,40 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "YM Börek Üretiminde Çarpan Sayı bakımını yap",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_YMBOREKURETIMCARPAN_O4",
+    "serviceName": "ZUI_YMBOREKURETIMCARPAN_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "YmBorUreCarpanAAll",
+    "name": "Teyit - YM Börek Üretiminde Çarpan Sayı",
+    "transportObject": "ZYMBOREKURETIMCARPANT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "YmBorUreCarpanAAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "YmBorUreCarpan",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

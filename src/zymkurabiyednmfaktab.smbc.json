@@ -1,0 +1,40 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "YM Dönüşüm Fak.Tabl. bakımını yap",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_YMKURABIYEDNMFAKTAB_O4",
+    "serviceName": "ZUI_YMKURABIYEDNMFAKTAB_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "YmKurabiyeDNMFakAll",
+    "name": "Teyit - YM Dönüşüm Fakt.",
+    "transportObject": "ZYMKURABIYEDNMFAKTABT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "YmKurabiyeDNMFakAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "YmKurabiyeDNMFakTab",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+managed with additional save implementation in class ZBP_I_YMBORURECARPAN_S unique;
+strict;
+with draft;
+define behavior for ZI_YmBorUreCarpan_S alias YmBorUreCarpanAAll
+draft table ZPP_T_CONF_DT05
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _YmBorUreCarpan { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_YmBorUreCarpan alias YmBorUreCarpan ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_005
+draft table ZPP_T_CONF_DT5
+lock dependent by _YmBorUreCarpanAAll
+authorization dependent by _YmBorUreCarpanAAll
+{
+  field ( mandatory : create )
+   Carpan;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Carpan;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_005
+  {
+    Carpan = CARPAN;
+  }
+
+  association _YmBorUreCarpanAAll { with draft; }
+
+}

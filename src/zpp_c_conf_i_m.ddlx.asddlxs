@@ -1,0 +1,55 @@
+@Metadata.layer: #CORE
+annotate view ZPP_C_CONF_I with
+{
+
+
+  @UI.hidden: true
+  ItemNo;
+
+  @EndUserText.label: 'Bileşen Malzeme'
+  @UI.lineItem: [
+
+   {
+     position: 20,
+     label: 'Bileşen Malzeme'
+   }
+  ]
+  ComponentMaterial;
+
+  @EndUserText.label: 'Bileşen Tanımı'
+  @UI.lineItem: [{ position: 30, label: 'Bileşen Tanımı' }]
+  ComponentDescription;
+
+  @UI.lineItem: [{ position: 40, label: 'Depo Yeri' }]
+  StorageLocation;
+
+  @UI.lineItem: [{ position: 50, label: 'Parti' }]
+  Batch;
+
+  @UI.lineItem: [{ position: 60, label: 'Miktar' }]
+  Quantity;
+
+  @UI.lineItem: [{ position: 70, label: 'Ölçü Birimi' }]
+  @UI.hidden: true
+  Unit;
+
+  @UI.lineItem: [{ position: 80, label: 'Araba Sayısı' }]
+  CarCount;
+
+  @UI.lineItem: [{ position: 90, label: 'Fiili Stok Miktarı' }]
+  @UI.hidden: #( HideActualStockQuantity )
+  ActualStockQuantity;
+
+  @UI.hidden: true
+  HideActualStockQuantity;
+
+  @UI.lineItem: [{ position: 110, label: 'Kalem Tipi' }]
+  BomItemCat;
+  
+  @UI.hidden: true
+  IsBatchMngmntRequired;
+
+  @UI.lineItem: [{ position: 130, label: 'Değişiklik Tarihi' }]
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

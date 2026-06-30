@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TKetimStoktaKalacak_S14'
+define service ZUI_TKETIMSTOKTAKALACAK {
+  expose ZI_TKETIMSTOKTAKALACAK_S14 as TKetimStoktaKalaAll;
+  expose ZI_TKETIMSTOKTAKALACAK as TKetimStoktaKalacak;
+}

@@ -1,0 +1,67 @@
+managed with additional save implementation in class ZBP_I_TKETIMSTOKTAKALACAK_S unique;
+strict;
+with draft;
+define behavior for ZI_TKetimStoktaKalacak_S14 alias TKetimStoktaKalaAll
+draft table zpp_t_conf_d_s14
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master ( global )
+{
+  field ( readonly )
+  SingletonID;
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _TKetimStoktaKalacak { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_TKetimStoktaKalacak alias TKetimStoktaKalacak ##UNMAPPED_FIELD
+persistent table zpp_t_conf_006
+draft table zpp_t_conf_d14
+lock dependent by _TKetimStoktaKalaAll
+authorization dependent by _TKetimStoktaKalaAll
+{
+  field ( mandatory : create )
+  Yarimamul,
+  Altyarimamul;
+
+  field ( readonly )
+  SingletonID,
+  BaseUnit;
+
+  field ( readonly : update )
+  Yarimamul,
+  Altyarimamul;
+
+  field ( notrigger )
+  SingletonID;
+
+
+  update ( features : global );
+  delete ( features : global );
+
+  mapping for zpp_t_conf_006
+    {
+      Yarimamul      = YARIMAMUL;
+      Altyarimamul   = ALTYARIMAMUL;
+      Stkklnsabitmik = STKKLNSABITMIK;
+      baseunit       = BASEUNIT;
+    }
+
+  association _TKetimStoktaKalaAll { with draft; }
+
+}

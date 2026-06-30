@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'UretimTuruTabl', 
+    typeNamePlural: 'UretimTuruTabls', 
+    title: {
+      type: #STANDARD, 
+      label: 'Üretim Türü Tabl.', 
+      value: 'Uretimturu'
+    }
+  }
+}
+annotate view ZI_UretimTuruTabl with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_UretimTuruTabl', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Üretim Türü Tabl.', 
+    position: 1 
+  } ]
+  Uretimturu;
+}

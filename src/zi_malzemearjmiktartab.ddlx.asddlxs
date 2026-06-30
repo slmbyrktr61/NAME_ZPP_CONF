@@ -1,0 +1,40 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MalzemeArjMiktarTab',
+    typeNamePlural: 'MalzemeArjMiktarTabs',
+    title: {
+      type: #STANDARD,
+      label: 'Malzeme Şarj Miktarı Tabl.',
+      value: 'Malzeme'
+    }
+  }
+}
+annotate view ZI_MalzemeArjMiktarTab with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MalzemeArjMiktarTab',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Malzeme Şarj Miktarı Tabl.',
+    position: 1
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Malzeme;
+
+  @UI.identification: [ {
+    position: 2 ,
+    label: 'Şarj Miktarı'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 ,
+    label: 'Şarj Miktarı'
+  } ]
+  Sarjmiktari;
+}

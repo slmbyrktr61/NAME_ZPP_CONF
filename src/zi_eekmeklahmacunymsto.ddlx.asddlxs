@@ -1,0 +1,51 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'EEkmekLahmacunYmSto', 
+    typeNamePlural: 'EEkmekLahmacunYmStos', 
+    title: {
+      type: #STANDARD, 
+      label: ' E.Ekmek-Lahmacun YM Stok Tabl.', 
+      value: 'Mamul'
+    }
+  }
+}
+annotate view ZI_EEkmekLahmacunYmSto with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 ,
+             label: 'Mamul'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_EEkmekLahmacunYmSto', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: ' E.Ekmek-Lahmacun YM Stok Tabl.', 
+    position: 1 
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Mamul;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 ,
+         label: 'Yarı Mamul'
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Yarimamul;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Miktar'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Miktar'
+  } ]
+  Miktar;
+}

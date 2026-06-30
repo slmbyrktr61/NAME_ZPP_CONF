@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'GrupTablosu', 
+    typeNamePlural: 'GrupTablosus', 
+    title: {
+      type: #STANDARD, 
+      label: 'Grup Tablosu', 
+      value: 'Grup'
+    }
+  }
+}
+annotate view ZI_GrupTablosu with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_GrupTablosu', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Grup Tablosu', 
+    position: 1 
+  } ]
+  Grup;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Tanım'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Tanım'
+  } ]
+  Tanim;
+}

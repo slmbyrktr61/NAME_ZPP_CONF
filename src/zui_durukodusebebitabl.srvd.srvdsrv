@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DuruKoduSebebiTabl_S'
+define service ZUI_DURUKODUSEBEBITABL {
+  expose ZI_DURUKODUSEBEBITABL_S as DuruKoduSebebiTaAll;
+  expose ZI_DURUKODUSEBEBITABL as DuruKoduSebebiTabl;
+}

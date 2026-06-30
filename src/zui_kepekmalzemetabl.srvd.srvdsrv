@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_KepekMalzemeTabl_S12'
+define service ZUI_KEPEKMALZEMETABL {
+  expose ZI_KEPEKMALZEMETABL_S12 as KepekMalzemeTablAll;
+  expose ZI_KEPEKMALZEMETABL as KepekMalzemeTabl;
+}

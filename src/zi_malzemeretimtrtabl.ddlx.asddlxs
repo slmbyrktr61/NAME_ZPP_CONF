@@ -1,0 +1,38 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MalzemeRetimTRTabl',
+    typeNamePlural: 'MalzemeRetimTRTabls',
+    title: {
+      type: #STANDARD,
+      label: 'Malzeme Üretim Türü Tabl.',
+      value: 'Malzeme'
+    }
+  }
+}
+annotate view ZI_MalzemeRetimTRTabl with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MalzemeRetimTRTabl',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Malzeme Üretim Türü Tabl.',
+    position: 1
+  } ]
+//  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Malzeme;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  Uretimturu;
+}

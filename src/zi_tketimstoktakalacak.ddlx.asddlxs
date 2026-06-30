@@ -1,0 +1,56 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TKetimStoktaKalacak',
+    typeNamePlural: 'TKetimStoktaKalacaks',
+    title: {
+      type: #STANDARD,
+      label: 'Tüketim Stokta Kalacak Miktarlar Tabl.',
+      value: 'Yarimamul'
+    }
+  }
+}
+annotate view ZI_TKetimStoktaKalacak with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TKetimStoktaKalacak',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Tüketim Stokta Kalacak Miktarlar Tabl.',
+    position: 1
+  } ]
+  Yarimamul;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  Altyarimamul;
+
+  @UI.identification: [ {
+    position: 3 ,
+    label: 'Stkklnsabitmik'
+  } ]
+  @UI.lineItem: [{ position: 4, label: 'Stk.Kalan Miktar' }, {
+    position: 3 ,
+    label: 'Stkklnsabitmik'
+  } ]
+  Stkklnsabitmik;
+  @UI.identification: [ {
+    position: 4 ,
+    label: 'BaseUnit'
+  } ]
+  @UI.lineItem: [{ position: 4, label: 'Ölçü Birim' }, {
+    position: 4 ,
+    label: 'BaseUnit'
+  } ]
+  BaseUnit;
+}

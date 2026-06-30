@@ -1,0 +1,62 @@
+managed with additional save implementation in class ZBP_I_VARDIYANOTABL_S unique;
+strict;
+with draft;
+define behavior for ZI_VardiyaNoTabl_S alias VardiyaNoTablAll
+draft table ZPP_T_CONF__D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _VardiyaNoTabl { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_VardiyaNoTabl alias VardiyaNoTabl ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_001
+draft table ZPP_T_CONF_00_D
+lock dependent by _VardiyaNoTablAll
+authorization dependent by _VardiyaNoTablAll
+{
+  field ( mandatory : create )
+   Shiftno;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Shiftno;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_001
+  {
+    Shiftno = SHIFTNO;
+    Shiftdesc = SHIFTDESC;
+  }
+
+  association _VardiyaNoTablAll { with draft; }
+
+}

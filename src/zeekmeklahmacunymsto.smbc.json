@@ -1,0 +1,40 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "E.Ekmek-Lahmacun YM Stok Tabl. bakımını yap",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_EEKMEKLAHMACUNYMSTO_O4",
+    "serviceName": "ZUI_EEKMEKLAHMACUNYMSTO_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "EEkmekLahmacunYmAll",
+    "name": "Teyit - E.Ekmek-Lahmacun YM Stok Tabl.",
+    "transportObject": "ZEEKMEKLAHMACUNYMSTOT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "EEkmekLahmacunYmAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "EEkmekLahmacunYmSto",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 2,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Tüketim Stokta Kalacak Mikt. Tabl. bakımını yap",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_TKETIMSTOKTAKALACAK_O4",
+    "serviceName": "ZUI_TKETIMSTOKTAKALACAK_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "TKetimStoktaKalaAll",
+    "name": "Teyit - Tüketim Stokta Kalacak Miktarlar Tabl.",
+    "transportObject": "ZTKETIMSTOKTAKALACAKT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "TKetimStoktaKalaAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "TKetimStoktaKalacak",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 2,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

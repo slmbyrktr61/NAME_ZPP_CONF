@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_YmBorUreCarpan_S'
+define service ZUI_YMBOREKURETIMCARPAN {
+  expose ZI_YMBORURECARPAN_S as YmBorUreCarpanAAll;
+  expose ZI_YMBORURECARPAN as YmBorUreCarpan;
+}

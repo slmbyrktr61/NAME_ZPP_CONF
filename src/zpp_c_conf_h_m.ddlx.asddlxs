@@ -1,0 +1,318 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'PP Teyit',
+  typeNamePlural: 'PP Teyitleri',
+  title: {
+    type: #STANDARD,
+    value: 'Material'
+  },
+  description: {
+    type: #STANDARD,
+    value: 'MaterialDescription'
+  }
+}
+
+annotate view ZPP_C_CONF_H with
+{
+  @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Başlık Verisi',
+      position: 10,
+      targetQualifier: 'General'
+    }
+    ,
+    {
+      id: 'Items',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Bileşen Verisi',
+      position: 20,
+      targetElement: '_Items'
+    }
+  ]
+
+  @EndUserText.label: 'Teyit UUID'
+  @UI.hidden: true
+  ConfUuid;
+
+  @EndUserText.label: 'Üretim Yeri'
+  Plant;
+
+  @EndUserText.label: 'Vardiya'
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [
+    { position: 10, label: 'Vardiya' },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'DowntimeReason',
+      label: 'Duruş Sebebi Gir',
+      position: 5
+    },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'Confirmation',
+      label: 'Teyit Ver',
+      position: 6
+    }
+  ]
+  @UI.identification: [
+    { position: 10, label: 'Vardiya' },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'DowntimeReason',
+      label: 'Duruş Sebebi Gir',
+      importance: #HIGH,
+      position: 5
+    },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'Confirmation',
+      label: 'Teyit Ver',
+      importance: #HIGH,
+      position: 6
+    },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'GetMatComponents',
+      label: 'Bileşenleri Getir',
+      importance: #HIGH,
+      position: 7
+    },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'GetProdQuan',
+      label: 'Üretim Miktarı Getir',
+      position: 8,
+      importance: #HIGH
+    },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'UseScrapMaterial',
+      label: 'Iskarta Malzeme Kullan',
+      position: 9,
+      importance: #HIGH
+    },
+    {
+      type: #FOR_ACTION,
+      dataAction: 'DefineBatch',
+      label: 'Parti Belirleme FİFO',
+      position: 10,
+      importance: #HIGH
+    }
+  ]
+  @Consumption.valueHelpDefinition: [
+    {
+      entity: {
+        name: 'ZPP_I_SHIFT_VH',
+        element: 'ShiftCode'
+      },
+      additionalBinding: [
+        {
+          localElement: 'ShiftDesc',
+          element: 'ShiftDesc',
+          usage: #RESULT
+        }
+      ]
+    }
+  ]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 10, label: 'Vardiya' }]
+  ShiftCode;
+  
+  
+  @EndUserText.label: 'Vardiya Tanımı'
+  @UI.lineItem: [{ position: 11, label: 'Vardiya' }]
+  @UI.hidden: true
+  ShiftDesc;
+
+  //  @EndUserText.label: 'Grup'
+  //  @UI.textArrangement: #TEXT_LAST
+  //  @UI.lineItem: [{ position: 20, label: 'Grup' }]
+  //  @UI.identification: [{ position: 20, label: 'Grup' }]
+  //  @UI.fieldGroup: [{ qualifier: 'General', position: 20, label: 'Grup' }]
+  //  @Consumption.valueHelpDefinition: [
+  //    {
+  //      entity: {
+  //        name: 'ZPP_I_GROUP_VH',
+  //        element: 'GroupCode'
+  //      }
+  //    }
+  //  ]
+  //  GroupCode;
+
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.lineItem: [{ position: 20, label: 'Grup' }]
+  @UI.identification: [{ position: 20, label: 'Grup' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 20, label: 'Grup' }]
+  @Consumption.valueHelpDefinition: [
+    {
+      entity: {
+        name: 'ZPP_I_GROUP_VH',
+        element: 'GroupCode'
+      },
+      additionalBinding: [
+        {
+          localElement: 'GroupDesc',
+          element: 'GroupDesc',
+          usage: #RESULT
+        }
+      ]
+    }
+  ]
+  GroupCode;
+
+
+  @EndUserText.label: 'Grup Tanımı'
+  @UI.lineItem: [{ position: 21, label: 'Grup Tanımı' }]
+  @UI.hidden: true
+  GroupDesc;
+
+  @EndUserText.label: 'Malzeme No.'
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 30, label: 'Malzeme No.' }]
+  @UI.identification: [{ position: 30, label: 'Malzeme No.' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 30, label: 'Malzeme No.' }]
+  @Consumption.valueHelpDefinition: [
+    {
+      entity: {
+        name: 'ZPP_I_PRODUCT_VH',
+        element: 'Product'
+      },
+      additionalBinding: [
+        {
+          localElement: 'MaterialDescription',
+          element: 'ProductName',
+          usage: #RESULT
+        },
+        {
+          localElement: 'BaseUnit',
+          element: 'BaseUnit',
+          usage: #RESULT
+        }
+      ]
+    }
+  ]
+  Material;
+
+  @EndUserText.label: 'Üretim Partisi'
+  @UI.selectionField: [{ position: 110 }]
+  @UI.lineItem: [{ position: 110, label: 'Üretim Partisi' }]
+  @UI.identification: [{ position: 110, label: 'Üretim Partisi' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 110, label: 'Üretim Partisi' }]
+  ProductionBatch;
+
+  @EndUserText.label: 'Malzeme Tanımı'
+  @UI.lineItem: [{ position: 50, label: 'Malzeme Tanımı' }]
+  @UI.identification: [{ position: 50, label: 'Malzeme Tanımı' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 50, label: 'Malzeme Tanımı' }]
+  MaterialDescription;
+
+
+
+  @EndUserText.label: 'Üretim Miktarı Girişi'
+  @UI.lineItem: [{ position: 60, label: 'Üretim Miktarı Girişi' }]
+  @UI.identification: [{ position: 60, label: 'Üretim Miktarı Girişi' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 60, label: 'Üretim Miktarı Girişi' }]
+  ProductionQuantity;
+
+  @EndUserText.label: 'Fiili Miktar'
+  //  @UI.hidden: #( HideActualQuantity )
+  //  @UI.lineItem: [{ position: 70, label: 'Fiili Miktar' }]
+  @UI.identification: [{ position: 70, label: 'Fiili Miktar' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 70, label: 'Fiili Miktar' }]
+  ActualQuantity;
+
+  //  @UI.hidden: true
+  //  hideactualquantity;
+
+
+  @EndUserText.label: 'Şarj Miktarı'
+  @UI.hidden: #( HideChargeQuantity )
+  //  @UI.lineItem: [{ position: 80, label: 'Şarj Miktarı' }]
+  @UI.identification: [{ position: 80, label: 'Şarj Miktarı' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 80, label: 'Şarj Miktarı' }]
+  ChargeQuantity;
+
+  @UI.hidden: true
+  HideChargeQuantity;
+
+
+  @EndUserText.label: 'Çarpan Sayısı'
+  @UI.hidden: #( HideMultiplier )
+  ////  @UI.lineItem: [{ position: 90, label: 'Çarpan Sayısı' }]
+  @UI.identification: [{ position: 90, label: 'Çarpan Sayısı' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 90, label: 'Çarpan Sayısı' }]
+  @Consumption.valueHelpDefinition: [
+   {
+     entity: {
+       name: 'ZPP_I_MULTIPLIER_VH',
+       element: 'Carpan'
+     }
+   }
+  ]
+  Multiplier;
+
+  @UI.hidden: true
+  HideMultiplier;
+
+
+  @EndUserText.label: 'Ölçü Birimi'
+  @UI.lineItem: [{ position: 100, label: 'Ölçü Birimi' }]
+  @UI.identification: [{ position:100, label: 'Ölçü Birimi' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 100, label: 'Ölçü Birimi' }]
+  BaseUnit;
+
+
+  @EndUserText.label: 'Kapanış Vardiyası'
+  @UI.hidden: #( HideClosingShift )
+  @UI.lineItem: [{ position: 120, label: 'Kapanış Vardiyası' }]
+  @UI.identification: [{ position: 120, label: 'Kapanış Vardiyası' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 120, label: 'Kapanış Vardiyası' }]
+  ClosingShift;
+
+  @UI.hidden: true
+  HideClosingShift;
+
+
+  @EndUserText.label: 'Teyit Belgesi'
+  @UI.lineItem: [{ position: 130, label: 'Teyit Belgesi' }]
+  //  @UI.identification: [{ position: 130, label: 'Teyit Belgesi' }]
+  //@UI.fieldGroup: [{ qualifier: 'General', position: 130, label: 'Teyit Belgesi' }]
+  ConfDoc;
+
+
+  @EndUserText.label: 'Parti Üretim tarihi Gücellendi'
+  @UI.hidden: true
+  BatchUpdate;
+
+  @EndUserText.label: 'Üretim Türü'
+  @UI.hidden: true
+  ProductionType;
+
+  @EndUserText.label: 'Üretim Versiyonu'
+  @UI.hidden: true
+  ProductionVersion;
+
+  @EndUserText.label: 'Oluşturan'
+  @UI.hidden: true
+  CreatedBy;
+
+  @EndUserText.label: 'Oluşturma Tarihi'
+  @UI.hidden: true
+  CreatedAt;
+
+  @EndUserText.label: 'Değiştiren'
+  @UI.hidden: true
+  LastChangedBy;
+
+  @EndUserText.label: 'Değiştirme Tarihi'
+  @UI.hidden: true
+  LastChangedAt;
+
+  @EndUserText.label: 'Yerel Son Değişiklik Zamanı'
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

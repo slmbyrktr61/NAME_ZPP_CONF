@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'IskartaMalzeme',
+    typeNamePlural: 'IskartaMalzemes',
+    title: {
+      type: #STANDARD,
+      label: 'Iskarta Malzeme Malz.',
+      value: 'Material'
+    }
+  }
+}
+annotate view ZI_IISKARTAMALZEME with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_IISKARTAMALZEME',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Iskarta Malzeme Malz.',
+    position: 1
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Material;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  ScrapMaterial;
+}

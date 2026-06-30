@@ -1,0 +1,31 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'YmBorUreCarpan', 
+    typeNamePlural: 'YmBorUreCarpans', 
+    title: {
+      type: #STANDARD, 
+      label: 'YM Börek Üretiminde Çarpan Sayı', 
+      value: 'Carpan'
+    }
+  }
+}
+annotate view ZI_YmBorUreCarpan with
+{
+  @UI.identification: [ {
+    position: 1 , 
+    label: 'Carpan'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 , 
+    label: 'Carpan'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_YmBorUreCarpan', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'YM Börek Üretiminde Çarpan Sayı', 
+    position: 1 
+  } ]
+  Carpan;
+}

@@ -1,0 +1,61 @@
+managed with additional save implementation in class ZBP_I_KEPEKMALZEME_S unique;
+strict;
+with draft;
+define behavior for ZI_KEPEKMALZEME_S alias KepekMalzemeTablAll
+draft table ZPP_T_CONF_D15_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _KepekMalzeme { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_KEPEKMALZEME alias KepekMalzeme ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_014
+draft table ZPP_T_CONF_14_D
+lock dependent by _KepekMalzemeTablAll
+authorization dependent by _KepekMalzemeTablAll
+{
+  field ( mandatory : create )
+   Malzeme;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Malzeme;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_014
+  {
+    Malzeme = MALZEME;
+  }
+
+  association _KepekMalzemeTablAll { with draft; }
+
+}

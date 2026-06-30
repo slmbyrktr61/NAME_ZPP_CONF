@@ -1,0 +1,42 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Grup Tablosu bakımını yap",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_GRUPTABLOSU_O4",
+    "serviceName": "ZUI_GRUPTABLOSU_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "GrupTablosuAll",
+    "name": "Teyit - Grup Tablosu bakımı yap",
+    "transportObject": "ZGRUPTABLOSUT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {
+      "variantManagement": "none"
+    },
+    "objectPages": [
+      {
+        "entitySet": "GrupTablosuAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "GrupTablosu",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

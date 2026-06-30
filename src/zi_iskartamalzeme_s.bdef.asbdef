@@ -1,0 +1,64 @@
+managed with additional save implementation in class ZBP_I_IISKARTAMALZEME_S unique;
+strict;
+with draft;
+define behavior for ZI_ISKARTAMALZEME_S alias IskartaMalzemeMaAll
+draft table ZPP_T_CONF_D_S12
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _IskartaMalzeme { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_IISKARTAMALZEME alias IskartaMalzeme ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_012
+draft table ZPP_T_CONF_12_D
+lock dependent by _IskartaMalzemeMaAll
+authorization dependent by _IskartaMalzemeMaAll
+{
+  field ( mandatory : create )
+   Material,
+   ScrapMaterial;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Material,
+   ScrapMaterial;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_012
+  {
+    Material = MATERIAL;
+    ScrapMaterial = SCRAP_MATERIAL;
+  }
+
+  association _IskartaMalzemeMaAll { with draft; }
+
+}

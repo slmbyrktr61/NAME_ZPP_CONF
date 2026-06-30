@@ -1,0 +1,40 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Duruş Kodu-Sebebi Tabl. bakımını yap",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_DURUKODUSEBEBITABL_O4",
+    "serviceName": "ZUI_DURUKODUSEBEBITABL_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "DuruKoduSebebiTaAll",
+    "name": "Teyit - Duruş Kodu-Sebebi Tabl.",
+    "transportObject": "ZDURUKODUSEBEBITABLT",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "DuruKoduSebebiTaAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "DuruKoduSebebiTabl",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

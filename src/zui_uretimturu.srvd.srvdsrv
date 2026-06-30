@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_UretimTuru_S'
+define service ZUI_URETIMTURU {
+  expose ZI_URETIMTURU_S as UretimTuruTablAll;
+  expose ZI_URETIMTURUTABL as UretimTuruTabl;
+}

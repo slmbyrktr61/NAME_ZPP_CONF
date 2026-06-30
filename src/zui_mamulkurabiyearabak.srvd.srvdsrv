@@ -1,0 +1,6 @@
+@ObjectModel.leadingEntity.name: 'ZI_MamulKurabiyeArabaK_S'
+define service ZUI_MAMULKURABIYEARABAK {
+  expose ZI_MamulKurabiyeArabaK_S as MamulKurabiyeAraAll;
+  expose ZI_MamulKurabiyeArabaK   as MamulKurabiyeArabaK;
+  expose ZI_PRODUCT_VH            as ProductVH;
+}

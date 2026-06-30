@@ -1,0 +1,30 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'KepekMalzeme',
+    typeNamePlural: 'KepekMalzemes',
+    title: {
+      type: #STANDARD,
+      label: 'Kepek Malzeme Tabl.',
+      value: 'Malzeme'
+    }
+  }
+}
+annotate view ZI_KEPEKMALZEME with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_KEPEKMALZEME',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Kepek Malzeme Tabl.',
+    position: 1
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Malzeme;
+}

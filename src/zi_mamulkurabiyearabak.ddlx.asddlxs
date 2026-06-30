@@ -1,0 +1,51 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MamulKurabiyeArabaK',
+    typeNamePlural: 'MamulKurabiyeArabaKs',
+    title: {
+      type: #STANDARD,
+      label: 'Mamul Kurabiye Araba KG. Tabl.',
+      value: 'Mamul'
+    }
+  }
+}
+annotate view ZI_MamulKurabiyeArabaK with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1,
+    label: 'Mamul Ürün'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MamulKurabiyeArabaK',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Mamul Kurabiye Araba KG. Tabl.',
+    position: 1
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Mamul;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2,
+     label: 'Yarı Mamul Ürün'
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZPP_I_PRODUCT_VH', element: 'Product'} }]
+  Yarimamul;
+
+  @UI.identification: [ {
+    position: 3 ,
+    label: 'Arabakg'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 ,
+    label: '1 Araba KG'
+  } ]
+  Arabakg;
+}

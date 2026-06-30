@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_YMBREKRETIMYMTKETIM_S'
+define service ZUI_YMBREKRETIMYMTKETIM {
+  expose ZI_YmBRekRetimYmTKetim   as TukStokKalMik;
+  expose ZI_YmBRekRetimYmTKetim_S as TukStokKalMik_s;
+}

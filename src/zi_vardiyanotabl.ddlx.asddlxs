@@ -1,0 +1,41 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'VardiyaNoTabl', 
+    typeNamePlural: 'VardiyaNoTabls', 
+    title: {
+      type: #STANDARD, 
+      label: 'Vardiya No Tabl.', 
+      value: 'Shiftno'
+    }
+  }
+}
+annotate view ZI_VardiyaNoTabl with
+{
+  @UI.identification: [ {
+    position: 1 , 
+    label: 'Vardiya No.'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 , 
+    label: 'Vardiya No.'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_VardiyaNoTabl', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Vardiya Tablosu', 
+    position: 1 
+  } ]
+  Shiftno;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Vardiya Tanım'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Vardiya Tanım'
+  } ]
+  Shiftdesc;
+}
