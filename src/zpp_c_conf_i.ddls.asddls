@@ -39,26 +39,27 @@ define view entity ZPP_C_CONF_I
       ComponentDescription,
       StorageLocation,
 
-      @Consumption.valueHelpDefinition: [
-        {
-          entity: {
-            name: 'ZPP_I_BATCH_STOCK_VH',
-            element: 'Batch'
-          },
-          additionalBinding: [
-            {
-              localElement: 'ComponentMaterial',
-              element: 'Product',
-              usage: #FILTER_AND_RESULT
-            },
-            {
-              localElement: 'StorageLocation',
-              element: 'StorageLocation',
-              usage: #FILTER_AND_RESULT
-            }
-          ]
-        }
-      ]
+            @Consumption.valueHelpDefinition: [
+              {
+              
+                entity: {
+                  name: 'ZPP_I_BATCH_STOCK_VH',
+                  element: 'Batch'
+                }
+//                additionalBinding: [
+//                  {
+//                    localElement: 'ComponentMaterial',
+//                    element: 'Product',
+//                    usage: #FILTER_AND_RESULT
+//                  },
+//                  {
+//                    localElement: 'StorageLocation',
+//                    element: 'StorageLocation',
+//                    usage: #FILTER_AND_RESULT
+//                  }
+//                ]
+              }
+            ]
       Batch,
 
       @Semantics.quantity.unitOfMeasure: 'Unit'
@@ -67,12 +68,13 @@ define view entity ZPP_C_CONF_I
       Unit,
       CarCount,
 
+      @Semantics.quantity.unitOfMeasure: 'Unit'
       ActualStockQuantity,
 
       HideActualStockQuantity,
-      
+
       BomItemCat,
-      
+
       IsBatchMngmntRequired,
 
       LocalLastChangedAt,

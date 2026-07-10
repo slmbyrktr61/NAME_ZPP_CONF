@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_MAMULDISIYEMEKDURUS'
+define service ZUI_MAMULDISIYEMEKDURUS {
+  expose ZI_MAMULDISIYEMEKDURUS as MamulDYemekDuruMAll;
+  expose ZI_MAMULDISIYEMEKDURUS15 as MamulDisiYemekDurus;
+}

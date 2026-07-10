@@ -1,0 +1,61 @@
+managed with additional save implementation in class ZBP_I_MAMULDISIYEMEKDURUS_S unique;
+strict;
+with draft;
+define behavior for ZI_MAMULDISIYEMEKDURUS alias MamulDYemekDuruMAll
+draft table ZPP_T_CONF_D_S15
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _MamulDisiYemekDurus { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_MamulDisiYemekDurus15 alias MamulDisiYemekDurus ##UNMAPPED_FIELD
+persistent table ZPP_T_CONF_015
+draft table ZPP_T_CONF_D15
+lock dependent by _MamulDYemekDuruMAll
+authorization dependent by _MamulDYemekDuruMAll
+{
+  field ( mandatory : create )
+   Malzeme;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Malzeme;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZPP_T_CONF_015
+  {
+    Malzeme = MALZEME;
+  }
+
+  association _MamulDYemekDuruMAll { with draft; }
+
+}

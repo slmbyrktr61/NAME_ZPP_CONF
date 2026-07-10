@@ -368,6 +368,54 @@
      <MSGNR>059</MSGNR>
      <TEXT>&amp; Üretim türünde şarj mikt. bakımı yapılmalıdır!</TEXT>
     </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>060</MSGNR>
+     <TEXT>Duruş girişinde Açıklama alanı zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>061</MSGNR>
+     <TEXT>Duruş girişinde Vardiya alanı zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>062</MSGNR>
+     <TEXT>Duruş girişinde Grup alanı zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>063</MSGNR>
+     <TEXT>Duruş girişinde Malzeme alanı zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>064</MSGNR>
+     <TEXT>Duruş girişinde Duruş Tarihi alanı zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>065</MSGNR>
+     <TEXT>Duruş girişinde Duruş Saati alanı zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>066</MSGNR>
+     <TEXT>Duruş girişinde Duruş Kodu alanı zorunludur!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>T</SPRSL>
+     <ARBGB>ZPP_CONF</ARBGB>
+     <MSGNR>067</MSGNR>
+     <TEXT>Duruş girişinde Duruş Süresi alanı zorunludur!</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

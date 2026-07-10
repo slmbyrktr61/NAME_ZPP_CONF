@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZPP_C_CONF_DWNTM'
+@MappingRole: true
+define role ZPP_C_CONF_DWNTM {
+  grant select on ZPP_C_CONF_DWNTM
+  where INHERITING CONDITIONS FROM ENTITY ZPP_I_CONF_DWNTM REPLACING { ROOT WITH _BaseEntity };
+}

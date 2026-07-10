@@ -1,0 +1,271 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'Material'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'DowntimeDate'
+annotate view ZPP_C_CONF_DWNTM with
+{
+  @EndUserText.label: 'DowntimeUUID'
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'DowntimeUUID'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 ,
+    label: 'Duruş UUID'
+  } ]
+  @UI.hidden: true
+  DowntimeUUID;
+
+  @UI.facet: [ {
+    label: 'Genel bilgiler',
+    id: 'GeneralInfo',
+    purpose: #STANDARD,
+    position: 20 ,
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @UI.identification: [ {
+    position: 20,label: 'Vardiya'
+  } ]
+
+  @UI.selectionField: [ {
+    position: 20
+  } ]
+  @Consumption.valueHelpDefinition: [
+   {
+     entity: {
+       name: 'ZPP_I_SHIFT_VH',
+       element: 'ShiftCode'
+     }
+   }
+  ]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 20, label: 'Vardiya' }]
+  @UI.lineItem: [{ position: 20, label: 'Vardiya' }]
+  Shiftcode;
+
+  @UI.identification: [ {
+    position: 30, label: 'Grup'
+  } ]
+  @UI.selectionField: [ {
+    position: 30
+  } ]
+  @Consumption.valueHelpDefinition: [
+   {
+     entity: {
+       name: 'ZPP_I_GROUP_VH',
+       element: 'GroupCode'
+     }
+   }
+  ]
+  @UI.lineItem: [{ position: 30, label: 'Grup' }]
+  Groupcode;
+
+  @UI.identification: [ {
+    position: 40,label: 'İş Yeri'
+  } ]
+  @UI.lineItem: [ {
+    position: 40, label: 'İş Yeri'
+  } ]
+  @UI.selectionField: [ {
+    position: 40
+  } ]
+  @Consumption.valueHelpDefinition: [
+   {
+     entity: {
+       name: 'ZPP_I_WORKCENTER_VH',
+       element: 'WorkCenter'
+     }
+   }
+  ]
+  Workcenter;
+  @EndUserText.label: 'İş Yeri Tanım'
+   @UI.lineItem: [ {
+   position: 45 ,
+   label: 'İş Yeri Tanım'
+  } ]
+  @UI.identification: [ {
+   position: 45 ,
+   label: 'İş Yeri Tanım'
+  } ]
+  WorkCenterText;
+
+  @UI.identification: [ {
+    position: 50,
+    label: 'Malzeme No.'
+  } ]
+  @UI.lineItem: [ {
+    position: 50,  label: 'Malzeme No.'
+  } ]
+  @UI.selectionField: [ {
+    position: 50
+  } ]
+  @Consumption.valueHelpDefinition: [
+   {
+     entity: {
+       name: 'ZPP_I_PRODUCT_DWNTM_VH',
+       element: 'Product'
+     }
+   }
+  ]
+  Material;
+  @UI.lineItem: [ {
+   position: 55 ,
+   label: 'Malzeme Tanım'
+  } ]
+  @UI.identification: [ {
+   position: 55 ,
+   label: 'Malzeme Tanım'
+  } ]
+  @EndUserText.label: 'Malzeme Tanım'
+  MaterialDescription;
+
+
+
+  @EndUserText.label: 'Duruş Tarihi'
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'Duruş Tarihi'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 ,
+    label: 'Duruş Tarihi'
+  } ]
+  DowntimeDate;
+
+  @EndUserText.label: 'Duruş Saati'
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'Duruş Saati'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 ,
+    label: 'Duruş Saati'
+  } ]
+  DowntimeTime;
+
+  @EndUserText.label: 'Shift'
+  @UI.identification: [ {
+    position: 115 ,
+    label: 'Vardiya Kodu'
+  } ]
+  @UI.lineItem: [ {
+    position: 115 ,
+    label: 'Vardiya Kodu'
+  } ]
+  //  @UI.hidden: true
+  Shift;
+
+  @EndUserText.label: 'Duruş Kodu'
+  @UI.identification: [ {
+    position: 90 ,
+    label: 'Duruş Kodu'
+  } ]
+  @UI.lineItem: [ {
+    position: 90 ,
+    label: 'Duruş Kodu'
+  } ]
+  @UI.selectionField: [ {
+    position: 90
+  } ]
+  @Consumption.valueHelpDefinition: [
+   {
+     entity: {
+       name: 'ZPP_I_DWNTM_REASON_VH',
+       element: 'DowntimeCode'
+     }
+   }
+  ]
+  DowntimeCode;
+  @UI.lineItem: [ {
+   position: 95 ,
+   label: 'Duruş Kodu Tanımı'
+  } ]
+  @UI.identification: [ {
+   position: 95 ,
+   label: 'Duruş Kodu Tanımı'
+  } ]
+  @EndUserText.label: 'Duruş Kodu Tanımı'
+  DowntimeCodeDescription;
+
+  @EndUserText.label: 'Duruş Süresi(Dk.)'
+  @UI.identification: [ {
+    position: 100 ,
+    label: 'Duruş Süresi(Dk.)'
+  } ]
+  @UI.lineItem: [ {
+    position: 100 ,
+    label: 'Duruş Süresi(Dk.)'
+  } ]
+
+  DowntimeDuration;
+
+  @EndUserText.label: 'Duruş Açıklaması'
+  @UI.identification: [ {
+    position: 110 ,
+    label: 'Duruş Açıklaması'
+  } ]
+  @UI.lineItem: [ {
+    position: 110 ,
+    label: 'Duruş Açıklaması'
+  } ]
+  @UI.multiLineText: true
+  DowntimeText;
+
+
+  @UI.identification: [ {
+    position: 120
+  } ]
+  @UI.lineItem: [ {
+    position: 120
+  } ]
+
+  CreatedBy;
+
+  @UI.identification: [ {
+    position: 130
+  } ]
+  @UI.lineItem: [ {
+    position: 130
+  } ]
+
+  CreatedAt;
+
+  @UI.identification: [ {
+    position: 140
+  } ]
+  @UI.lineItem: [ {
+    position: 140
+  } ]
+
+  LastChangedBy;
+
+  @UI.identification: [ {
+    position: 150
+  } ]
+  @UI.lineItem: [ {
+    position: 150
+  } ]
+
+  LastChangedAt;
+
+  @UI.identification: [ {
+    position: 160
+  } ]
+  @UI.lineItem: [ {
+    position: 160
+  } ]
+
+  LocalLastChangedAt;
+
+  @EndUserText.label: '_BaseEntity'
+  @UI.identification: [ {
+    position: 170 ,
+    label: '_BaseEntity'
+  } ]
+  @UI.lineItem: [ {
+    position: 170 ,
+    label: '_BaseEntity'
+  } ]
+
+  _BaseEntity;
+}

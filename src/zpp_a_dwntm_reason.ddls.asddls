@@ -24,5 +24,5 @@ define abstract entity ZPP_A_DWNTM_REASON
   DowntimeCode : abap.numc(2);
 
   @EndUserText.label: 'Durma Süresi'
-  DowntimeDuration : abap.dec(13,3);
+  DowntimeDuration : abap.int4;
 }

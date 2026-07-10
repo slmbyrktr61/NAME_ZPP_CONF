@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Şunun için servis tanımı: ZPP_C_CONF_DWNTM'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZPP_C_CONF_DWNTM'
+  }
+}
+define service ZPP_UI_CONF_DWNTM_O4 provider contracts odata_v4_ui {
+  expose ZPP_C_CONF_DWNTM as Downtime;
+}

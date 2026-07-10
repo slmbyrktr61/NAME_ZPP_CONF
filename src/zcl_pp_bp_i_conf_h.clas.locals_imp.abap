@@ -29,16 +29,11 @@ CLASS lsc_zpp_i_conf_h IMPLEMENTATION.
       zcl_pp_conf=>save_conf_log( is_conf_log = lcl_buffer=>gs_conf_log ).
     ENDIF.
 
-    """""""" Duruş Kayıtlarını Kaydet
-    IF lcl_buffer=>gt_dwntm IS NOT INITIAL.
-      MODIFY zpp_t_conf_dwntm FROM TABLE @lcl_buffer=>gt_dwntm.
-    ENDIF.
-
   ENDMETHOD.
 
   METHOD cleanup_finalize.
 
-    CLEAR: lcl_buffer=>gt_dwntm , lcl_buffer=>gs_conf_log, lcl_buffer=>gv_skip_fillcomponentdata.
+    CLEAR: lcl_buffer=>gs_conf_log, lcl_buffer=>gv_skip_fillcomponentdata.
 
   ENDMETHOD.
 
@@ -63,8 +58,8 @@ CLASS lhc__header DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS getmatcomponents FOR MODIFY
       IMPORTING keys FOR ACTION _header~getmatcomponents RESULT result.
 
-    METHODS downtimereason FOR MODIFY
-      IMPORTING keys FOR ACTION _header~downtimereason RESULT result.
+*    METHODS downtimereason FOR MODIFY
+*      IMPORTING keys FOR ACTION _header~downtimereason RESULT result.
 
     METHODS confirmation FOR MODIFY
       IMPORTING keys FOR ACTION _header~confirmation RESULT result.
@@ -89,8 +84,8 @@ CLASS lhc__header DEFINITION INHERITING FROM cl_abap_behavior_handler.
 
     METHODS usescrapmaterial FOR MODIFY
       IMPORTING keys FOR ACTION _header~usescrapmaterial RESULT result.
-    METHODS setchargequantityvisibility FOR DETERMINE ON MODIFY
 
+    METHODS setchargequantityvisibility FOR DETERMINE ON MODIFY
       IMPORTING keys FOR _header~setchargequantityvisibility.
 
 *    METHODS setchargequanvisibilitysave FOR DETERMINE ON SAVE
@@ -1188,6 +1183,7 @@ CLASS lhc__header IMPLEMENTATION.
       productionbatch    = ls_header-productionbatch
       productionversion  = ls_prodver-productionversion
       plant              = ls_header-plant
+      downtime           = ls_header-downtime
     ).
 
     IF failed_conf IS NOT INITIAL.
@@ -1244,6 +1240,7 @@ CLASS lhc__header IMPLEMENTATION.
 
         lcl_buffer=>gs_conf_log-pid = ls_mapped_conf-%pid.
 
+
         APPEND VALUE #(
           %tky = <ls_key>-%tky
           %msg = new_message(
@@ -1295,97 +1292,6 @@ CLASS lhc__header IMPLEMENTATION.
 
 
 
-
-*  METHOD get_instance_features.
-*
-*    READ ENTITIES OF zpp_i_conf_h IN LOCAL MODE
-*      ENTITY _header
-*        FIELDS (
-*          confuuid
-*          shiftcode
-*          material
-*          productiontype
-*          closingshift
-*          confdoc
-*        )
-*        WITH CORRESPONDING #( keys )
-*      RESULT DATA(lt_header).
-*
-*    LOOP AT lt_header ASSIGNING FIELD-SYMBOL(<ls_header>).
-*
-*      DATA(lv_is_confirmed) = xsdbool( <ls_header>-confdoc IS NOT INITIAL ).
-*
-*      DATA(lv_change_control) = COND #(
-*        WHEN lv_is_confirmed = abap_true THEN if_abap_behv=>fc-o-disabled
-*        ELSE if_abap_behv=>fc-o-enabled
-*      ).
-*
-*      DATA(lv_has_required_draft_data) = xsdbool(
-*           lv_is_confirmed = abap_false
-*       AND <ls_header>-%is_draft = if_abap_behv=>mk-on
-*       AND <ls_header>-shiftcode IS NOT INITIAL
-*       AND <ls_header>-material  IS NOT INITIAL
-*      ).
-*
-*      DATA(lv_draft_action_control) = COND #(
-*        WHEN lv_has_required_draft_data = abap_true THEN if_abap_behv=>fc-o-enabled
-*        ELSE if_abap_behv=>fc-o-disabled
-*      ).
-*
-*      DATA(lv_has_required_active_data) = xsdbool(
-*           lv_is_confirmed = abap_false
-*       AND <ls_header>-%is_draft = if_abap_behv=>mk-off
-*       AND <ls_header>-shiftcode IS NOT INITIAL
-*       AND <ls_header>-material  IS NOT INITIAL
-*      ).
-*
-*      DATA(lv_confirmation_control) = COND #(
-*        WHEN lv_has_required_active_data = abap_true THEN if_abap_behv=>fc-o-enabled
-*        ELSE if_abap_behv=>fc-o-disabled
-*      ).
-*
-*      " Iskarta Malzeme Kullan action kontrolü
-*      DATA(lv_use_scrap_material_control) = COND #(
-*        WHEN lv_is_confirmed = abap_true THEN if_abap_behv=>fc-o-disabled
-*
-*        WHEN <ls_header>-%is_draft = if_abap_behv=>mk-on
-*         AND <ls_header>-shiftcode IS NOT INITIAL
-*         AND <ls_header>-material IS NOT INITIAL
-*         AND <ls_header>-closingshift <> abap_true
-*         AND (
-*              <ls_header>-productiontype = zcl_pp_conf=>mc_ut_ym_borek
-*           OR <ls_header>-productiontype = zcl_pp_conf=>mc_ut_mamul_ee_lahmacun
-*           OR <ls_header>-productiontype = zcl_pp_conf=>mc_ut_ym_ee_lahmacun
-*         )
-*        THEN if_abap_behv=>fc-o-enabled
-*
-*        ELSE if_abap_behv=>fc-o-disabled
-*      ).
-*
-*      APPEND VALUE #(
-*        %tky = <ls_header>-%tky
-*
-*        " Standart update/delete
-*        %update = lv_change_control
-*        %delete = lv_change_control
-*
-*        " Object Page üstündeki standart Düzenle butonu
-*        %action-edit = lv_change_control
-*
-*        " Draft/edit mod actionları
-*        %action-downtimereason   = lv_draft_action_control
-*        %action-getprodquan      = lv_draft_action_control
-*        %action-definebatch      = lv_draft_action_control
-*        %action-getmatcomponents = lv_draft_action_control
-*        %action-usescrapmaterial = lv_use_scrap_material_control
-*
-*        " Active/display mod action
-*        %action-confirmation     = lv_confirmation_control
-*      ) TO result.
-*
-*    ENDLOOP.
-*
-*  ENDMETHOD.
 
 
   METHOD get_instance_features.
@@ -1476,7 +1382,7 @@ CLASS lhc__header IMPLEMENTATION.
         %action-edit = lv_change_control
 
         " Draft/edit mod actionları
-        %action-downtimereason   = lv_draft_action_control
+*        %action-downtimereason   = lv_draft_action_control
         %action-definebatch      = lv_draft_action_control
         %action-getmatcomponents = lv_draft_action_control
 
@@ -1564,6 +1470,8 @@ CLASS lhc__header IMPLEMENTATION.
       <ls_clear>-hideclosingshift   = abap_false.
       <ls_clear>-hidechargequantity = abap_false.
       <ls_clear>-hidemultiplier     = abap_false.
+      <ls_clear>-hidedowntime = abap_true.
+      <ls_clear>-downtime = abap_false.
 
       MODIFY ENTITIES OF zpp_i_conf_h IN LOCAL MODE
         ENTITY _header
@@ -1579,6 +1487,8 @@ CLASS lhc__header IMPLEMENTATION.
             hideclosingshift
             hidechargequantity
             hidemultiplier
+            hidedowntime
+            downtime
           )
           WITH lt_update
         REPORTED DATA(lt_reported_clear).
@@ -1595,7 +1505,8 @@ CLASS lhc__header IMPLEMENTATION.
 
     SELECT SINGLE product,
                   productname,
-                  baseunit
+                  baseunit,
+                  producttype
       FROM zi_product_vh
       WHERE product = @lv_material
       INTO @DATA(ls_product).
@@ -1636,6 +1547,8 @@ CLASS lhc__header IMPLEMENTATION.
       DATA(ls_charge) = zcl_pp_conf=>get_charge_quan( iv_material = lv_material ).
     ENDIF.
 
+    " Yemek Duruşu için alan aç/kapa işlemi 1003 Ürün Tipi harici malzeme tabloda var ise yemek duruşu ver
+    DATA(ls_dt_material) = zcl_pp_conf=>get_mat_downtime_eat( iv_material = lv_material ) .
 
     """""""""""""""""""""""""""""" Header alanlarını güncelle """"""""""""""""""""""""""""""""
 
@@ -1669,8 +1582,8 @@ CLASS lhc__header IMPLEMENTATION.
       ELSE <ls_header>-closingshift
     ).
 
+
     " Şarş Miktarı tabloda var ise alanı aç, yok ise kapat
-    "
     IF ls_prod_type-uretimturu = zcl_pp_conf=>mc_ut_sarjli.
       IF ls_charge-sarjmiktari > 0.
         <ls_update>-hidechargequantity = abap_false.
@@ -1689,7 +1602,17 @@ CLASS lhc__header IMPLEMENTATION.
       THEN abap_false
       ELSE abap_true
     ).
-    "" Ekran kapat Aç Bitti -->
+
+    " Yemek Duruşu için alan aç/kapa işlemi 1003 Ürün Tipi
+    DATA(lv_hide_downtime) = COND abap_boolean(
+      WHEN ls_product-producttype = zcl_pp_conf=>mc_prodtype_1003 OR
+           ls_dt_material IS NOT INITIAL
+      THEN abap_false
+      ELSE abap_true ).
+    <ls_update>-hidedowntime = lv_hide_downtime.
+    IF lv_hide_downtime = abap_true.
+      <ls_update>-downtime = abap_false.
+    ENDIF.
 
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1707,6 +1630,8 @@ CLASS lhc__header IMPLEMENTATION.
           hidechargequantity
           hidemultiplier
           chargequantity
+          hidedowntime
+          downtime
         )
         WITH lt_update
       REPORTED DATA(lt_reported).
@@ -1873,100 +1798,106 @@ CLASS lhc__header IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD downtimereason.
+*  METHOD downtimereason.
 
-    READ ENTITIES OF zpp_i_conf_h IN LOCAL MODE
-      ENTITY _header
-        FIELDS ( confuuid shiftcode groupcode material )
-        WITH CORRESPONDING #( keys )
-      RESULT DATA(lt_header).
-    IF lt_header IS INITIAL.
-      RETURN.
-    ENDIF.
+*    READ ENTITIES OF zpp_i_conf_h IN LOCAL MODE
+*      ENTITY _header
+*        FIELDS ( confuuid shiftcode groupcode material )
+*        WITH CORRESPONDING #( keys )
+*      RESULT DATA(lt_header).
+*    IF lt_header IS INITIAL.
+*      RETURN.
+*    ENDIF.
+*
+*    " Duruş tarih/saati Türkiye (kullanıcı logon) saat dilimine göre — UTC değil.
+*    DATA lv_date TYPE d.
+*    DATA lv_time TYPE t.
+*    CONVERT UTCLONG utclong_current( )
+*      INTO DATE lv_date TIME lv_time
+*      TIME ZONE sy-zonlo.
+*
+*    LOOP AT lt_header ASSIGNING FIELD-SYMBOL(<ls_header>).
+*
+*      READ TABLE keys ASSIGNING FIELD-SYMBOL(<ls_key>)
+*        WITH KEY %tky = <ls_header>-%tky.
+*      IF sy-subrc <> 0.
+*        CONTINUE.
+*      ENDIF.
+*
+*
+*      IF <ls_key>-%param-workcenter IS INITIAL
+*      OR <ls_key>-%param-downtimecode IS INITIAL
+*      OR <ls_key>-%param-downtimeduration IS INITIAL.
+*
+*        APPEND VALUE #(
+*          %tky = <ls_header>-%tky
+*        ) TO failed-_header.
+*
+*        APPEND VALUE #(
+*          %tky = <ls_header>-%tky
+*          %msg = new_message(
+*            id       = zcl_pp_conf=>mc_mess_id
+*            number   = '019'
+*            severity = if_abap_behv_message=>severity-error
+*          )
+*        ) TO reported-_header.
+*
+*        CONTINUE.
+*
+*      ENDIF.
+*
+*
+*      TRY.
+*        DATA(lv_uuid) = to_upper( cl_uuid_factory=>create_system_uuid( )->create_uuid_x16( ) ).
+*        CATCH cx_uuid_error INTO DATA(lr_uuid_err).
+*      ENDTRY.
+*
+*      DATA(lv_material_internal) = CONV matnr( |{ <ls_header>-material ALPHA = IN WIDTH = 18 }| ).
+*      GET TIME STAMP FIELD DATA(lv_created_at).
+*      APPEND VALUE #(
+*        downtime_uuid     = lv_uuid
+*        shiftcode         = <ls_header>-shiftcode
+*        groupcode         = <ls_header>-groupcode
+*        workcenter        = <ls_key>-%param-workcenter
+*        material          = lv_material_internal
+*        downtime_date     = lv_date
+*        downtime_time     = lv_time
+*        shift             = |{ <ls_header>-shiftcode+1(1) }{ <ls_header>-groupcode }|
+*        downtime_code     = <ls_key>-%param-downtimecode
+*        downtime_duration = <ls_key>-%param-downtimeduration
+*        created_by        = cl_abap_context_info=>get_user_technical_name( )
+*        created_at        = lv_created_at
+*      ) TO lcl_buffer=>gt_dwntm.
+*
+*    ENDLOOP.
+*
+*
+*    CHECK failed-_header IS INITIAL.
+*
+*    APPEND VALUE #(
+*          %tky = <ls_header>-%tky
+*          %msg = new_message(
+*            id       = zcl_pp_conf=>mc_mess_id
+*            number   = '020'
+*            severity = if_abap_behv_message=>severity-success
+*          )
+*        ) TO reported-_header.
+*
+*    READ ENTITIES OF zpp_i_conf_h IN LOCAL MODE
+*      ENTITY _header
+*        ALL FIELDS
+*        WITH CORRESPONDING #( keys )
+*      RESULT DATA(lt_result).
+*
+*    result = VALUE #(
+*      FOR ls_result IN lt_result
+*      (
+*        %tky   = ls_result-%tky
+*        %param = ls_result
+*      )
+*    ).
 
-    " Duruş tarih/saati Türkiye (kullanıcı logon) saat dilimine göre — UTC değil.
-    DATA lv_date TYPE d.
-    DATA lv_time TYPE t.
-    CONVERT UTCLONG utclong_current( )
-      INTO DATE lv_date TIME lv_time
-      TIME ZONE sy-zonlo.
-
-    LOOP AT lt_header ASSIGNING FIELD-SYMBOL(<ls_header>).
-
-      READ TABLE keys ASSIGNING FIELD-SYMBOL(<ls_key>)
-        WITH KEY %tky = <ls_header>-%tky.
-      IF sy-subrc <> 0.
-        CONTINUE.
-      ENDIF.
-
-
-      IF <ls_key>-%param-workcenter IS INITIAL
-      OR <ls_key>-%param-downtimecode IS INITIAL
-      OR <ls_key>-%param-downtimeduration IS INITIAL.
-
-        APPEND VALUE #(
-          %tky = <ls_header>-%tky
-        ) TO failed-_header.
-
-        APPEND VALUE #(
-          %tky = <ls_header>-%tky
-          %msg = new_message(
-            id       = zcl_pp_conf=>mc_mess_id
-            number   = '019'
-            severity = if_abap_behv_message=>severity-error
-          )
-        ) TO reported-_header.
-
-        CONTINUE.
-
-      ENDIF.
-
-      DATA(lv_material_internal) = CONV matnr( |{ <ls_header>-material ALPHA = IN WIDTH = 18 }| ).
-
-      APPEND VALUE #(
-        shiftcode         = <ls_header>-shiftcode
-        groupcode         = <ls_header>-groupcode
-        workcenter        = <ls_key>-%param-workcenter
-        material          = lv_material_internal
-        downtime_date     = lv_date
-        downtime_time     = lv_time
-        shift             = |{ <ls_header>-shiftcode+1(1) }{ <ls_header>-groupcode }|
-        downtime_code     = <ls_key>-%param-downtimecode
-        downtime_duration = <ls_key>-%param-downtimeduration
-        downtime_baseunit = zcl_pp_conf=>mc_dak
-      ) TO lcl_buffer=>gt_dwntm.
-
-    ENDLOOP.
-
-
-    CHECK failed-_header IS INITIAL.
-
-    APPEND VALUE #(
-          %tky = <ls_header>-%tky
-          %msg = new_message(
-            id       = zcl_pp_conf=>mc_mess_id
-            number   = '020'
-            severity = if_abap_behv_message=>severity-success
-          )
-        ) TO reported-_header.
-
-    READ ENTITIES OF zpp_i_conf_h IN LOCAL MODE
-      ENTITY _header
-        ALL FIELDS
-        WITH CORRESPONDING #( keys )
-      RESULT DATA(lt_result).
-
-    result = VALUE #(
-      FOR ls_result IN lt_result
-      (
-        %tky   = ls_result-%tky
-        %param = ls_result
-      )
-    ).
-
-
-
-  ENDMETHOD.
+*  ENDMETHOD.
 
 *  METHOD getprodquan.
 *
@@ -2542,7 +2473,7 @@ CLASS lhc__header IMPLEMENTATION.
 
     " Üretim türü kontrolü
     IF <ls_header>-productiontype <> zcl_pp_conf=>mc_ut_ym_kurabiye_simit
-   AND <ls_header>-productiontype <> zcl_pp_conf=>mc_ut_ym_ee_lahmacun.
+    AND <ls_header>-productiontype <> zcl_pp_conf=>mc_ut_ym_ee_lahmacun.
 
       APPEND VALUE #( %tky = <ls_header>-%tky ) TO failed-_header.
       APPEND VALUE #( %tky = <ls_header>-%tky %msg = new_message( id = zcl_pp_conf=>mc_mess_id number = '048'
@@ -2847,7 +2778,7 @@ CLASS lhc__header IMPLEMENTATION.
       ENDIF.
     ENDIF.
 
-    IF lv_effective_quantity < 1.
+    IF lv_effective_quantity < 0.
       APPEND VALUE #( %tky = <ls_header>-%tky ) TO failed-_header.
       APPEND VALUE #( %tky = <ls_header>-%tky %msg =
        new_message( id = zcl_pp_conf=>mc_mess_id number = '038' severity = if_abap_behv_message=>severity-error ) ) TO reported-_header. RETURN.

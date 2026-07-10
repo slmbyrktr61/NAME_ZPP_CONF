@@ -4,7 +4,6 @@
 
 @ObjectModel.dataCategory: #VALUE_HELP
 @ObjectModel.representativeKey: 'WorkCenter'
-@ObjectModel.resultSet.sizeCategory: #XS
 @ObjectModel.supportedCapabilities: [#VALUE_HELP_PROVIDER]
 @Search.searchable: true
 define view entity ZPP_I_WORKCENTER_VH

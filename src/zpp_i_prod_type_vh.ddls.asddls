@@ -3,6 +3,7 @@
 @EndUserText.label: 'Üretim Türü VH'
 @Metadata.ignorePropagatedAnnotations: true
 
+@ObjectModel.resultSet.sizeCategory: #XS
 @ObjectModel.dataCategory: #VALUE_HELP
 @ObjectModel.representativeKey: 'ProductionType'
 @ObjectModel.supportedCapabilities: [#VALUE_HELP_PROVIDER]

@@ -33,7 +33,8 @@ CLASS ZPP_UTIL IMPLEMENTATION.
 *    DELETE FROM zpp_t_conf_i.
 *    DELETE FROM zpp_t_conf_i_d.
 *    DELETE FROM zpp_t_conf_log.
-    DELETE FROM zpp_t_conf_dwntm.
+*    DELETE FROM zpp_t_conf_dwntm.
+*    DELETE FROM zpp_conf_dwntm_d.
 
 *    DATA: ls_addmat TYPE zpp_t_addmat.
 *    ls_addmat = VALUE #( product = 'IC900300' additional_product = 'IIC900301' ).

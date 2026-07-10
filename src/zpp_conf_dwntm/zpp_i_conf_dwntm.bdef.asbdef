@@ -1,0 +1,92 @@
+managed implementation in class ZBP_R_T_CONF_DWNTM unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZPP_I_CONF_DWNTM alias Downtime
+persistent table zpp_t_conf_dwntm
+extensible
+draft table zpp_conf_dwntm_d
+etag master LastChangedAt
+lock master total etag LocalLastChangedAt
+authorization master ( global )
+{
+  field ( mandatory : create )
+  Shiftcode,
+  Groupcode,
+  Material,
+  DowntimeDate,
+  DowntimeTime,
+  DowntimeCode,
+  DowntimeDuration;
+  //  DowntimeText;
+
+
+  field ( readonly )
+  DowntimeUUID,
+  Shift,
+  MaterialDescription,
+  DowntimeCodeDescription,
+  WorkCenterText,
+  CreatedBy,
+  CreatedAt,
+  LastChangedBy,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  field ( numbering : managed )
+  DowntimeUUID;
+
+  //  field ( readonly : update )
+  //   Shiftcode,
+  //   Groupcode,
+  //   Workcenter,
+  //   Material,
+  //   DowntimeDate,
+  //   DowntimeTime;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+   validation validateMandatoryFields on save
+  {
+    create;
+    update;
+    field DowntimeText;
+
+  }
+
+  determination SetDefaultValues on modify { create; }
+  determination updateShift on modify { create; update; field Shiftcode; field Groupcode; }
+
+  mapping for zpp_t_conf_dwntm corresponding extensible
+    {
+      DowntimeUUID            = DOWNTIME_UUID;
+      Shiftcode               = SHIFTCODE;
+      Groupcode               = GROUPCODE;
+      Workcenter              = WORKCENTER;
+      Material                = MATERIAL;
+      MaterialDescription     = materialdescription;
+      DowntimeDate            = DOWNTIME_DATE;
+      DowntimeTime            = DOWNTIME_TIME;
+      Shift                   = SHIFT;
+      DowntimeCode            = DOWNTIME_CODE;
+      DowntimeCodeDescription = downtimecodedescription;
+      DowntimeDuration        = DOWNTIME_DURATION;
+      DowntimeText            = downtime_text;
+      CreatedBy               = CREATED_BY;
+      CreatedAt               = CREATED_AT;
+      LastChangedBy           = LAST_CHANGED_BY;
+      LastChangedAt           = LAST_CHANGED_AT;
+      LocalLastChangedAt      = LOCAL_LAST_CHANGED_AT;
+    }
+
+}

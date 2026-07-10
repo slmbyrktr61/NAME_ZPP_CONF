@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP nesne düğümü tipi ZPP_CONF_DWNTM",
+    "originalLanguage": "tr",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZPP_CONF_DWNTM",
+  "sapObjectType": "ZPP_CONF_DWNTM",
+  "rootNode": true
+}

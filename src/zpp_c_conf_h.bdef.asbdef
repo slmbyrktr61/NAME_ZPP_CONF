@@ -17,7 +17,7 @@ define behavior for ZPP_C_CONF_H alias _Header
   use action Prepare;
   use action UseScrapMaterial;
 
-  use action DowntimeReason;
+//  use action DowntimeReason;
   use action Confirmation;
   use action GetMatComponents;
   use action GetProdQuan;

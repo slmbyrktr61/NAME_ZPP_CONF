@@ -1,5 +1,5 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Teyit Kalem Entity'
+@EndUserText.label: 'Teyit Kalem Entity view'
 @Metadata.ignorePropagatedAnnotations: true
 define view entity ZPP_I_CONF_I
   as select from zpp_t_conf_i
@@ -21,7 +21,7 @@ define view entity ZPP_I_CONF_I
       unit                       as Unit,
 
       car_count                  as CarCount,
-
+      @Semantics.quantity.unitOfMeasure: 'Unit'
       actual_stock_quantity      as ActualStockQuantity,
 
       hide_actual_stock_quantity as HideActualStockQuantity,

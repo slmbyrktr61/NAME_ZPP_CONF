@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZPP_I_CONF_DWNTM'
+@MappingRole: true
+define role ZPP_I_CONF_DWNTM {
+  grant select on ZPP_I_CONF_DWNTM
+  where TRUE;
+}

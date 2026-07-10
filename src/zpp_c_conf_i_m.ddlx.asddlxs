@@ -45,7 +45,7 @@ annotate view ZPP_C_CONF_I with
 
   @UI.lineItem: [{ position: 110, label: 'Kalem Tipi' }]
   BomItemCat;
-  
+
   @UI.hidden: true
   IsBatchMngmntRequired;
 

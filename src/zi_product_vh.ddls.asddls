@@ -40,9 +40,10 @@ define view entity ZI_PRODUCT_VH
       _ProductText.ProductName                            as ProductName,
       _Product.BaseUnit,
       @EndUserText.label: 'Malzeme Türü'
-      _materialtype.uretimturu as MaterialType,
+      _materialtype.uretimturu as ProductionType,
       @EndUserText.label: 'Depo Yeri'
       _PlantBasic.ProductionInvtryManagedLoc as StorageLoc,
-      _Product.IsBatchManagementRequired as IsBatchManagementRequired
+      _Product.IsBatchManagementRequired as IsBatchManagementRequired,
+      _Product.ProductType as ProductType
 
 }

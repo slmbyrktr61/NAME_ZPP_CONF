@@ -59,5 +59,6 @@ define view entity ZPP_I_PRODUCT_VH
 
       @EndUserText.label: 'Depo Yeri'
       @UI.selectionField: [{ position: 50 }]
-      _PlantBasic.ProductionInvtryManagedLoc as StorageLoc
+      _PlantBasic.ProductionInvtryManagedLoc as StorageLoc,
+      _Product.ProductType as ProductType
 }

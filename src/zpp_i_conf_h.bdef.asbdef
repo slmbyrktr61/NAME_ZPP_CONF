@@ -34,18 +34,12 @@ with additional save
     field ShiftCode;
     field GroupCode;
     field Material;
-    //    field ProductionType;
-    //    field Multiplier;
+
   }
 
-  //  validation ValidateMandatoryItems on save
-  //  {
-  //    create;
-  //    update;
-  //  }
 
 
-  action ( features : instance ) DowntimeReason parameter ZPP_A_DWNTM_REASON result [1] $self;
+  //  action ( features : instance ) DowntimeReason parameter ZPP_A_DWNTM_REASON result [1] $self;
 
 
   action ( features : instance ) Confirmation result [1] $self;
@@ -59,7 +53,8 @@ with additional save
   determination ChangeProductionQuan on modify { field ChargeQuantity; } // Şarj Miktarı-Üretim Miktarı Değişikliği
   determination SetClosingShiftVisibility on modify { create; field Material; } // Son Vardiya görünürlüğü
   determination SetChargeQuantityVisibility on modify { create; field Material; }
-//  determination SetChargeQuanVisibilitySave on save { create; update; }
+  //  determination SetdowntimeVisibility on modify { create; field Material; }
+  //  determination SetChargeQuanVisibilitySave on save { create; update; }
 
 
   side effects
@@ -73,6 +68,8 @@ with additional save
         field HideChargeQuantity,
         field HideMultiplier,
         field ActualQuantity,
+        field HideDowntime,
+        field Downtime,
         entity _Items;
 
     // Vardiya ile Üretim partisi alanı olşturma
@@ -99,6 +96,7 @@ with additional save
   field ( readonly ) ActualQuantity;
   field ( readonly ) BaseUnit;
   field ( readonly ) BatchUpdate;
+//  field ( readonly ) HideDowntime;
   field ( readonly ) CreatedBy;
   field ( readonly ) CreatedAt;
   field ( readonly ) LastChangedBy;
@@ -129,6 +127,8 @@ with additional save
       HideClosingShift    = hide_closing_shift;
       ConfDoc             = conf_doc;
       BatchUpdate         = batch_update;
+      Downtime            = downtime;
+      HideDowntime        = hide_downtime;
       CreatedBy           = created_by;
       CreatedAt           = created_at;
       LastChangedBy       = last_changed_by;
@@ -157,6 +157,10 @@ etag master LocalLastChangedAt
   side effects
   {
     field ComponentMaterial affects field ComponentDescription, field Unit, field StorageLocation, field BomItemCat, field CarCount, field Quantity, field IsBatchMngmntRequired, field Batch;
+
+    //    field StorageLocation affects field Batch;
+    //    field Quantity affects field Batch;
+
     field CarCount affects field Quantity;
     field ActualStockQuantity affects field Quantity;
   }

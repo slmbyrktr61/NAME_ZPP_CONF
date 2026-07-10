@@ -46,12 +46,12 @@ annotate view ZPP_C_CONF_H with
   @UI.selectionField: [{ position: 10 }]
   @UI.lineItem: [
     { position: 10, label: 'Vardiya' },
-    {
-      type: #FOR_ACTION,
-      dataAction: 'DowntimeReason',
-      label: 'Duruş Sebebi Gir',
-      position: 5
-    },
+  //    {
+  //      type: #FOR_ACTION,
+  //      dataAction: 'DowntimeReason',
+  //      label: 'Duruş Sebebi Gir',
+  //      position: 5
+  //    },
     {
       type: #FOR_ACTION,
       dataAction: 'Confirmation',
@@ -61,13 +61,13 @@ annotate view ZPP_C_CONF_H with
   ]
   @UI.identification: [
     { position: 10, label: 'Vardiya' },
-    {
-      type: #FOR_ACTION,
-      dataAction: 'DowntimeReason',
-      label: 'Duruş Sebebi Gir',
-      importance: #HIGH,
-      position: 5
-    },
+  //    {
+  //      type: #FOR_ACTION,
+  //      dataAction: 'DowntimeReason',
+  //      label: 'Duruş Sebebi Gir',
+  //      importance: #HIGH,
+  //      position: 5
+  //    },
     {
       type: #FOR_ACTION,
       dataAction: 'Confirmation',
@@ -121,8 +121,8 @@ annotate view ZPP_C_CONF_H with
   ]
   @UI.fieldGroup: [{ qualifier: 'General', position: 10, label: 'Vardiya' }]
   ShiftCode;
-  
-  
+
+
   @EndUserText.label: 'Vardiya Tanımı'
   @UI.lineItem: [{ position: 11, label: 'Vardiya' }]
   @UI.hidden: true
@@ -221,8 +221,9 @@ annotate view ZPP_C_CONF_H with
   @EndUserText.label: 'Fiili Miktar'
   //  @UI.hidden: #( HideActualQuantity )
   //  @UI.lineItem: [{ position: 70, label: 'Fiili Miktar' }]
-  @UI.identification: [{ position: 70, label: 'Fiili Miktar' }]
-  @UI.fieldGroup: [{ qualifier: 'General', position: 70, label: 'Fiili Miktar' }]
+  //  @UI.identification: [{ position: 70, label: 'Fiili Miktar' }]
+  //  @UI.fieldGroup: [{ qualifier: 'General', position: 70, label: 'Fiili Miktar' }]
+  @UI.hidden: true
   ActualQuantity;
 
   //  @UI.hidden: true
@@ -277,6 +278,27 @@ annotate view ZPP_C_CONF_H with
   HideClosingShift;
 
 
+  @EndUserText.label: 'Yemek Duruşu Ver'
+  @UI.hidden: #( HideDowntime )
+  @UI.identification: [
+    {
+      position: 125,
+      label: 'Yemek Duruşu Ver'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'General',
+      position: 125,
+      label: 'Yemek Duruşu Ver'
+    }
+  ]
+  Downtime;
+
+  @UI.hidden: true
+  HideDowntime;
+
+
   @EndUserText.label: 'Teyit Belgesi'
   @UI.lineItem: [{ position: 130, label: 'Teyit Belgesi' }]
   //  @UI.identification: [{ position: 130, label: 'Teyit Belgesi' }]
@@ -288,31 +310,29 @@ annotate view ZPP_C_CONF_H with
   @UI.hidden: true
   BatchUpdate;
 
-  @EndUserText.label: 'Üretim Türü'
-  @UI.hidden: true
-  ProductionType;
+
 
   @EndUserText.label: 'Üretim Versiyonu'
   @UI.hidden: true
   ProductionVersion;
 
   @EndUserText.label: 'Oluşturan'
-  @UI.hidden: true
+//  @UI.hidden: true
   CreatedBy;
 
   @EndUserText.label: 'Oluşturma Tarihi'
-  @UI.hidden: true
+//  @UI.hidden: true
   CreatedAt;
 
   @EndUserText.label: 'Değiştiren'
-  @UI.hidden: true
+//  @UI.hidden: true
   LastChangedBy;
 
   @EndUserText.label: 'Değiştirme Tarihi'
-  @UI.hidden: true
+//  @UI.hidden: true
   LastChangedAt;
 
   @EndUserText.label: 'Yerel Son Değişiklik Zamanı'
-  @UI.hidden: true
+//  @UI.hidden: true
   LocalLastChangedAt;
 }
