@@ -27,11 +27,11 @@ define view entity ZPP_I_BATCH_STOCK_VH
 
 {
       @Search.defaultSearchElement: true
-//      @Consumption.filter.mandatory: true
-//      @Consumption.filter.selectionType: #SINGLE
+      @Consumption.filter.mandatory: true
+      @Consumption.filter.selectionType: #SINGLE
   key _matStock.Material as Product,
-//      @Consumption.filter.mandatory: true
-//      @Consumption.filter.selectionType: #SINGLE
+      @Consumption.filter.mandatory: true
+      @Consumption.filter.selectionType: #SINGLE
   key _matStock.StorageLocation                     as StorageLocation,
   key _matStock.Batch                               as Batch,
 

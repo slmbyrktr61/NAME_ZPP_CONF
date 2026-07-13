@@ -45,19 +45,19 @@ define view entity ZPP_C_CONF_I
                 entity: {
                   name: 'ZPP_I_BATCH_STOCK_VH',
                   element: 'Batch'
-                }
-//                additionalBinding: [
-//                  {
-//                    localElement: 'ComponentMaterial',
-//                    element: 'Product',
-//                    usage: #FILTER_AND_RESULT
-//                  },
-//                  {
-//                    localElement: 'StorageLocation',
-//                    element: 'StorageLocation',
-//                    usage: #FILTER_AND_RESULT
-//                  }
-//                ]
+                },
+                additionalBinding: [
+                  {
+                    localElement: 'ComponentMaterial',
+                    element: 'Product',
+                    usage: #FILTER_AND_RESULT
+                  },
+                  {
+                    localElement: 'StorageLocation',
+                    element: 'StorageLocation',
+                    usage: #FILTER_AND_RESULT
+                  }
+                ]
               }
             ]
       Batch,
